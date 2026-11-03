@@ -10,9 +10,9 @@ class MenuScene extends Phaser.Scene {
             fontFamily: FONT_BODY, fontSize: '18px', color: '#efe3c8'
         }).setOrigin(0.5).setAlpha(0.85);
 
-        const clown = this.add.image(128, 420, 'clown').setScale(1.7);
-        this.tweens.add({ targets: clown, y: 410, scaleY: 1.76, duration: 900, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
-        const victim = this.add.image(660, 440, 'finalGirl').setScale(1.2).setFlipX(true);
+        const clown = this.add.image(128, 420, 'clown').setScale(1);
+        this.tweens.add({ targets: clown, y: 410, scaleY: 1.04, duration: 900, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+        const victim = this.add.image(660, 440, 'finalGirl').setScale(1).setFlipX(true);
         this.tweens.add({ targets: victim, x: 664, duration: 60, yoyo: true, repeat: -1 });
 
         const buttons = [

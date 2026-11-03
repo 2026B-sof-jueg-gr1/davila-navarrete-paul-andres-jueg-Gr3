@@ -15,6 +15,7 @@ const FONT_BODY = '"Rubik", "Segoe UI", sans-serif';
 const LEVEL = {
     name: 'Noche en la feria',
     par: 13,
+    maxMoves: 15,       // límite para eliminar a las víctimas antes de la final (par + 2)
     finalMoves: 4,
     finalAlt: [{ r: 7, c: 10 }, { r: 5, c: 10 }],
     map: [

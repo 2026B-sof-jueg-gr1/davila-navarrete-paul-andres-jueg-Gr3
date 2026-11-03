@@ -8,7 +8,7 @@ class HowToScene extends Phaser.Scene {
         const lines = [
             'Bufo se desliza en línea recta hasta chocar con algo.',
             'Si choca con una víctima, la elimina.',
-            'Elimina a las 3 víctimas para completar el nivel.',
+            `Elimina a las 3 víctimas en ${LEVEL.maxMoves} movimientos o menos.`,
             'Después aparece la última víctima: tienes pocos movimientos',
             'para alcanzarla antes de que escape.',
             'Al alcanzarla, detén la aguja en la zona verde 3 veces.',

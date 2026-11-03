@@ -24,17 +24,17 @@ class GameScene extends Phaser.Scene {
         this.createHud();
         this.setupInput();
         this.add.image(W / 2, H / 2, 'vignette').setDepth(40);
-        this.showBanner(LEVEL.name, 'Elimina a las 3 víctimas', 1500);
+        this.showBanner(LEVEL.name, `Elimina a las 3 víctimas en ${LEVEL.maxMoves} movimientos`, 1500);
     }
 
     // ---------- Nivel ----------
     parseLevel() {
         this.walls = new Set();
         this.victims = [];
-        const kinds = ['victimA', 'victimB', 'victimC'];
+        const kinds = ['victimA', 'victimB', 'victimC', 'victimD'];
         LEVEL.map.forEach((row, r) => [...row].forEach((ch, c) => {
             if (ch === '#') this.walls.add(`${r},${c}`);
-            if (ch === 'V') this.victims.push({ r, c, alive: true, tex: kinds[this.victims.length % 3] });
+            if (ch === 'V') this.victims.push({ r, c, alive: true, tex: kinds[this.victims.length % kinds.length] });
             if (ch === 'P') { this.pr = r; this.pc = c; }
             if (ch === 'F') this.finalSpawn = { r, c };
         }));
@@ -83,13 +83,13 @@ class GameScene extends Phaser.Scene {
 
     createActors() {
         this.victims.forEach(v => {
-            v.sprite = this.add.image(this.cx(v.c), this.cy(v.r) - 2, v.tex).setDepth(5).setScale(0.5);
+            v.sprite = this.add.image(this.cx(v.c), this.cy(v.r) - 2, v.tex).setDepth(5).setScale(0.4).setOrigin(0.5, 0.56);
             v.shake = this.tweens.add({ targets: v.sprite, x: v.sprite.x + 1.5, duration: 70, yoyo: true, repeat: -1 });
         });
-        this.player = this.add.image(this.cx(this.pc), this.cy(this.pr), 'clown').setDepth(10).setScale(0.5);
+        this.player = this.add.image(this.cx(this.pc), this.cy(this.pr), 'clown').setDepth(10).setScale(0.4).setOrigin(0.5, 0.56);
         this.light = this.add.image(this.player.x, this.player.y, 'light').setDepth(8).setBlendMode(Phaser.BlendModes.ADD).setScale(1.6);
         this.tweens.add({ targets: this.light, alpha: 0.75, duration: 140, yoyo: true, repeat: -1, repeatDelay: 1800, hold: 60 });
-        this.tweens.add({ targets: this.player, scaleY: 0.525, duration: 600, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+        this.tweens.add({ targets: this.player, scaleY: 0.42, duration: 600, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
     }
 
     // ---------- HUD ----------
@@ -113,10 +113,14 @@ class GameScene extends Phaser.Scene {
 
     updateHud() {
         this.killText.setText(`Víctimas ${this.kills}/3`);
-        this.moveText.setText(`Movimientos ${this.moves}   Par ${LEVEL.par}`);
+        this.moveText.setText(`Movimientos ${this.moves}/${LEVEL.maxMoves}   Par ${LEVEL.par}`);
         if (this.phase === 'final') {
             this.statusText.setText(`Escapa en ${this.finalMovesLeft}`);
             this.statusText.setColor(this.finalMovesLeft <= 1 ? '#ff4d6d' : '#f2c14e');
+        } else if (this.phase === 'hunt') {
+            const left = LEVEL.maxMoves - this.moves;
+            this.statusText.setText(`Quedan ${left} mov.`);
+            this.statusText.setColor(left <= 2 ? '#ff4d6d' : '#f2c14e');
         } else this.statusText.setText('');
     }
 
@@ -209,7 +213,22 @@ class GameScene extends Phaser.Scene {
             this.updateHud();
             if (this.finalMovesLeft <= 0) { this.finalEscape(); return; }
         }
+        if (this.outOfMoves()) { this.huntFailed(); return; }
         this.busy = false;
+    }
+
+    // Sin movimientos antes de eliminar a todas las víctimas: hay que reintentar
+    outOfMoves() {
+        return this.phase === 'hunt' && this.kills < 3 && this.moves >= LEVEL.maxMoves;
+    }
+
+    huntFailed() {
+        this.phase = 'done';
+        this.busy = true;
+        this.statusText.setText('');
+        Sfx.play('bump');
+        this.showBanner('Sin movimientos', `Las víctimas escaparon. Tienes ${LEVEL.maxMoves} movimientos`, 1700,
+            () => this.scene.restart());
     }
 
     lunge(d, onDone) {
@@ -232,6 +251,7 @@ class GameScene extends Phaser.Scene {
 
         this.time.delayedCall(500, () => {
             if (this.kills === 3) this.spawnFinal();
+            else if (this.outOfMoves()) this.huntFailed();
             else this.busy = false;
         });
     }
@@ -297,8 +317,8 @@ class GameScene extends Phaser.Scene {
         const x = this.cx(spot.c), y = this.cy(spot.r);
         this.final.ring = this.add.image(x, y, 'ring').setDepth(4).setAlpha(0);
         this.tweens.add({ targets: this.final.ring, alpha: 0.9, scale: 1.12, duration: 600, yoyo: true, repeat: -1 });
-        this.final.sprite = this.add.image(x, y - 2, 'finalGirl').setDepth(5).setScale(0);
-        this.tweens.add({ targets: this.final.sprite, scale: 0.5, duration: 500, ease: 'Back.easeOut' });
+        this.final.sprite = this.add.image(x, y - 2, 'finalGirl').setDepth(5).setScale(0).setOrigin(0.5, 0.56);
+        this.tweens.add({ targets: this.final.sprite, scale: 0.4, duration: 500, ease: 'Back.easeOut' });
         this.final.shake = this.tweens.add({ targets: this.final.sprite, x: x + 1.5, duration: 60, yoyo: true, repeat: -1 });
 
         Sfx.play('appear');
