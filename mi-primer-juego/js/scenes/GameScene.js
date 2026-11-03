@@ -6,8 +6,10 @@ const DIRS = {
 class GameScene extends Phaser.Scene {
     constructor() { super('Game'); }
 
-    create() {
+    create(data) {
         generateTextures(this);
+        this.levelIndex = (data && data.level) || 0;
+        this.lv = LEVELS[this.levelIndex];
         this.ox = (W - COLS * T) / 2;
         this.oy = HUD_H;
         this.phase = 'hunt';        // hunt -> final -> minigame -> done
@@ -24,7 +26,8 @@ class GameScene extends Phaser.Scene {
         this.createHud();
         this.setupInput();
         this.add.image(W / 2, H / 2, 'vignette').setDepth(40);
-        this.showBanner(LEVEL.name, `Elimina a las 3 víctimas en ${LEVEL.maxMoves} movimientos`, 1500);
+        this.showBanner(`Nivel ${this.levelIndex + 1}: ${this.lv.name}`,
+            `Elimina a las ${this.victims.length} víctimas en ${this.lv.maxMoves} movimientos`, 1500);
     }
 
     // ---------- Nivel ----------
@@ -32,7 +35,7 @@ class GameScene extends Phaser.Scene {
         this.walls = new Set();
         this.victims = [];
         const kinds = ['victimA', 'victimB', 'victimC', 'victimD'];
-        LEVEL.map.forEach((row, r) => [...row].forEach((ch, c) => {
+        this.lv.map.forEach((row, r) => [...row].forEach((ch, c) => {
             if (ch === '#') this.walls.add(`${r},${c}`);
             if (ch === 'V') this.victims.push({ r, c, alive: true, tex: kinds[this.victims.length % kinds.length] });
             if (ch === 'P') { this.pr = r; this.pc = c; }
@@ -102,7 +105,7 @@ class GameScene extends Phaser.Scene {
         const small = { w: 100, h: 34, size: '15px' };
         const right = this.ox + COLS * T;
         makeButton(this, right - 270, 34, 'Deshacer', () => this.undo(), small);
-        makeButton(this, right - 160, 34, 'Reiniciar', () => this.scene.restart(), small);
+        makeButton(this, right - 160, 34, 'Reiniciar', () => this.scene.restart({ level: this.levelIndex }), small);
         makeButton(this, right - 50, 34, 'Menú', () => this.scene.start('Menu'), small);
 
         this.add.text(W / 2, H - 26, 'Flechas o WASD para moverte, Z deshace, R reinicia', {
@@ -112,13 +115,13 @@ class GameScene extends Phaser.Scene {
     }
 
     updateHud() {
-        this.killText.setText(`Víctimas ${this.kills}/3`);
-        this.moveText.setText(`Movimientos ${this.moves}/${LEVEL.maxMoves}   Par ${LEVEL.par}`);
+        this.killText.setText(`Nivel ${this.levelIndex + 1}   Víctimas ${this.kills}/${this.victims.length}`);
+        this.moveText.setText(`Movimientos ${this.moves}/${this.lv.maxMoves}   Par ${this.lv.par}`);
         if (this.phase === 'final') {
             this.statusText.setText(`Escapa en ${this.finalMovesLeft}`);
             this.statusText.setColor(this.finalMovesLeft <= 1 ? '#ff4d6d' : '#f2c14e');
         } else if (this.phase === 'hunt') {
-            const left = LEVEL.maxMoves - this.moves;
+            const left = this.lv.maxMoves - this.moves;
             this.statusText.setText(`Quedan ${left} mov.`);
             this.statusText.setColor(left <= 2 ? '#ff4d6d' : '#f2c14e');
         } else this.statusText.setText('');
@@ -138,7 +141,7 @@ class GameScene extends Phaser.Scene {
             }
             if (keyDir[e.code]) this.tryMove(DIRS[keyDir[e.code]]);
             else if (e.code === 'KeyZ') this.undo();
-            else if (e.code === 'KeyR') this.scene.restart();
+            else if (e.code === 'KeyR') this.scene.restart({ level: this.levelIndex });
             else if (e.code === 'Escape') this.scene.start('Menu');
         });
 
@@ -219,7 +222,7 @@ class GameScene extends Phaser.Scene {
 
     // Sin movimientos antes de eliminar a todas las víctimas: hay que reintentar
     outOfMoves() {
-        return this.phase === 'hunt' && this.kills < 3 && this.moves >= LEVEL.maxMoves;
+        return this.phase === 'hunt' && this.kills < this.victims.length && this.moves >= this.lv.maxMoves;
     }
 
     huntFailed() {
@@ -227,8 +230,8 @@ class GameScene extends Phaser.Scene {
         this.busy = true;
         this.statusText.setText('');
         Sfx.play('bump');
-        this.showBanner('Sin movimientos', `Las víctimas escaparon. Tienes ${LEVEL.maxMoves} movimientos`, 1700,
-            () => this.scene.restart());
+        this.showBanner('Sin movimientos', `Las víctimas escaparon. Tienes ${this.lv.maxMoves} movimientos`, 1700,
+            () => this.scene.restart({ level: this.levelIndex }));
     }
 
     lunge(d, onDone) {
@@ -250,7 +253,7 @@ class GameScene extends Phaser.Scene {
         this.floatText(v.sprite.x, v.sprite.y - 20, '+1000');
 
         this.time.delayedCall(500, () => {
-            if (this.kills === 3) this.spawnFinal();
+            if (this.kills === this.victims.length) this.spawnFinal();
             else if (this.outOfMoves()) this.huntFailed();
             else this.busy = false;
         });
@@ -309,9 +312,9 @@ class GameScene extends Phaser.Scene {
         this.phase = 'final';
         this.huntMoves = this.moves;
         this.history = [];
-        this.finalMovesLeft = LEVEL.finalMoves;
+        this.finalMovesLeft = this.lv.finalMoves;
         const free = p => !(p.r === this.pr && p.c === this.pc) && !this.isWall(p.r, p.c);
-        const spot = [this.finalSpawn, ...LEVEL.finalAlt].find(free);
+        const spot = [this.finalSpawn, ...(this.lv.finalAlt || [])].find(free);
         this.final = { r: spot.r, c: spot.c, alive: true, isFinal: true };
 
         const x = this.cx(spot.c), y = this.cy(spot.r);
@@ -323,7 +326,7 @@ class GameScene extends Phaser.Scene {
 
         Sfx.play('appear');
         this.updateHud();
-        this.showBanner('Apareció la última víctima', `Atrápala en ${LEVEL.finalMoves} movimientos o escapará`, 1700,
+        this.showBanner('Apareció la última víctima', `Atrápala en ${this.lv.finalMoves} movimientos o escapará`, 1700,
             () => { this.busy = false; });
     }
 
@@ -449,16 +452,17 @@ class GameScene extends Phaser.Scene {
 
     // ---------- Fin del nivel ----------
     endLevel(finalKilled, finalBonus) {
-        const killPoints = 3000;
+        const killPoints = this.victims.length * 1000;
         const huntMoves = this.huntMoves || this.moves;
-        const efficiency = Math.max(0, 2000 - Math.max(0, huntMoves - LEVEL.par) * 150);
+        const efficiency = Math.max(0, 2000 - Math.max(0, huntMoves - this.lv.par) * 150);
         const total = killPoints + efficiency + finalBonus;
-        const stars = 1 + (finalKilled ? 1 : 0) + (huntMoves <= LEVEL.par + 2 ? 1 : 0);
+        const stars = 1 + (finalKilled ? 1 : 0) + (huntMoves <= this.lv.par + 2 ? 1 : 0);
         const newBest = total > (GameSettings.best || 0);
         if (newBest) { GameSettings.best = total; saveSettings(); }
         this.scene.start('Result', {
             killPoints, efficiency, finalKilled, finalBonus, total, stars, newBest,
-            moves: huntMoves, par: LEVEL.par
+            moves: huntMoves, par: this.lv.par,
+            level: this.levelIndex, victims: this.victims.length
         });
     }
 

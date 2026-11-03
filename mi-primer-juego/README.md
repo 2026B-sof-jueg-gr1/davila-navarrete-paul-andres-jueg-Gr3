@@ -4,8 +4,9 @@ Puzzle en Phaser 3 inspirado en la mecánica de los "killer puzzles": el payaso 
 en línea recta hasta chocar con algo, y si choca con una víctima, la elimina.
 
 ## Reglas
-- Elimina a las 3 víctimas en 15 movimientos o menos (el mínimo es 13); si se acaban, el nivel se reinicia.
-- Luego aparece la última víctima: tienes 4 movimientos para alcanzarla.
+- Hay 5 niveles de dificultad creciente (de 3 a 5 víctimas).
+- Elimina a todas las víctimas sin pasarte del límite de movimientos (el mínimo + 2); si se acaban, el nivel se reinicia.
+- Luego aparece la última víctima: tienes pocos movimientos para alcanzarla (se indica en pantalla).
 - Al alcanzarla, detén la aguja en la zona verde 3 veces seguidas.
 - Si escapa, el nivel cuenta como superado, pero con menos puntos.
 

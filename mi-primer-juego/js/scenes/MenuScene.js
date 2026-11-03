@@ -16,7 +16,7 @@ class MenuScene extends Phaser.Scene {
         this.tweens.add({ targets: victim, x: 664, duration: 60, yoyo: true, repeat: -1 });
 
         const buttons = [
-            makeButton(this, W / 2, 290, 'Iniciar juego', () => this.scene.start('Game')),
+            makeButton(this, W / 2, 290, 'Iniciar juego', () => this.scene.start('Game', { level: 0 })),
             makeButton(this, W / 2, 354, 'Cómo jugar', () => this.scene.start('HowTo')),
             makeButton(this, W / 2, 418, 'Opciones', () => this.scene.start('Options'))
         ];

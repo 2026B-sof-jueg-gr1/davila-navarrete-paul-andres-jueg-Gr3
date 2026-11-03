@@ -11,24 +11,92 @@ const FONT_TITLE = '"Creepster", "Impact", cursive';
 const FONT_BODY = '"Rubik", "Segoe UI", sans-serif';
 
 // Leyenda: # obstáculo, P payaso, V víctima, F aparición de la víctima final, . piso
-// Nivel verificado con un solver: solución mínima de 13 movimientos.
-const LEVEL = {
-    name: 'Noche en la feria',
-    par: 13,
-    maxMoves: 15,       // límite para eliminar a las víctimas antes de la final (par + 2)
-    finalMoves: 4,
-    finalAlt: [{ r: 7, c: 10 }, { r: 5, c: 10 }],
-    map: [
-        '...V.#.....',
-        '........#..',
-        '.......#...',
-        '.......#...',
-        '.....#...V.',
-        '###...#..#.',
-        'V......#..F',
-        'P####..#...'
-    ]
-};
+// Todos los niveles se verificaron con un solver: "par" es la solución mínima para eliminar a las víctimas,
+// "maxMoves" es el límite (par + 2) y "finalMoves" alcanza para atrapar a la víctima final desde
+// cualquier casilla donde pueda terminar el payaso. La dificultad sube con cada nivel.
+const LEVELS = [
+    {
+        name: 'Noche en la feria',
+        par: 13,
+        maxMoves: 15,
+        finalMoves: 4,
+        finalAlt: [{ r: 7, c: 10 }, { r: 5, c: 10 }],
+        map: [
+            '...V.#.....',
+            '........#..',
+            '.......#...',
+            '.......#...',
+            '.....#...V.',
+            '###...#..#.',
+            'V......#..F',
+            'P####..#...'
+        ]
+    },
+    {
+        name: 'La casa de los espejos',
+        par: 15,
+        maxMoves: 17,
+        finalMoves: 4,
+        map: [
+            '....V.#F...',
+            '......#....',
+            '.#.#.#..#..',
+            'P......#...',
+            '.....##....',
+            '..#V.#.....',
+            '....V.#V...',
+            '....#..#..#'
+        ]
+    },
+    {
+        name: 'El tren fantasma',
+        par: 18,
+        maxMoves: 20,
+        finalMoves: 4,
+        map: [
+            '#...#P...#.',
+            '....###..V.',
+            '........#.#',
+            '.##......#.',
+            '.#...V...#.',
+            'F..........',
+            '#...#..##V.',
+            '...#..###.V'
+        ]
+    },
+    {
+        name: 'Carpa de las sombras',
+        par: 20,
+        maxMoves: 22,
+        finalMoves: 5,
+        map: [
+            '......###..',
+            '..#.......V',
+            '.V#.#.##...',
+            '...#V...#V#',
+            '#.V......P.',
+            '........#.#',
+            '...........',
+            'F.#.#......'
+        ]
+    },
+    {
+        name: 'El gran final',
+        par: 25,
+        maxMoves: 27,
+        finalMoves: 4,
+        map: [
+            '..##....#..',
+            '....#P#....',
+            '..V...VF#.V',
+            '.##...##..#',
+            '..#...#..#.',
+            'V.#.#.....V',
+            '##......#..',
+            '..##..#.#..'
+        ]
+    }
+];
 
 // Dificultad del minijuego de precisión: ancho de zona por ronda y velocidad de la aguja
 const DIFFICULTY = {

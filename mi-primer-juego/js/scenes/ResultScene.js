@@ -3,7 +3,8 @@ class ResultScene extends Phaser.Scene {
 
     create(data) {
         drawTentBackdrop(this);
-        addTitle(this, data.finalKilled ? 'Función completa' : 'Nivel superado', 116, '62px');
+        const last = data.level === LEVELS.length - 1;
+        addTitle(this, data.finalKilled ? (last ? 'Función completa' : `Nivel ${data.level + 1} completo`) : `Nivel ${data.level + 1} superado`, 116, '62px');
 
         // Estrellas
         for (let i = 0; i < 3; i++) {
@@ -14,7 +15,7 @@ class ResultScene extends Phaser.Scene {
         }
 
         const rows = [
-            ['Víctimas (3 × 1000)', data.killPoints],
+            [`Víctimas (${data.victims} × 1000)`, data.killPoints],
             [`Eficiencia (${data.moves} mov., par ${data.par})`, data.efficiency],
             ['Última víctima', data.finalKilled ? data.finalBonus : 'escapó'],
             ['Total', data.total]
@@ -31,9 +32,14 @@ class ResultScene extends Phaser.Scene {
             (data.finalKilled ? `Récord: ${GameSettings.best}` : 'Atrapa a la última víctima para el puntaje máximo.');
         this.add.text(W / 2, 420, note, { fontFamily: FONT_BODY, fontSize: '18px', color: '#f2c14e' }).setOrigin(0.5);
 
-        const again = makeButton(this, W / 2, 482, 'Jugar de nuevo', () => this.scene.start('Game'));
-        const menu = makeButton(this, W / 2, 546, 'Menú principal', () => this.scene.start('Menu'));
-        setupMenuNav(this, [again, menu], () => this.scene.start('Menu'));
+        // Siguiente nivel (si queda alguno), reintentar y menú
+        const actions = [];
+        if (!last) actions.push(['Siguiente nivel', () => this.scene.start('Game', { level: data.level + 1 })]);
+        actions.push(['Reintentar', () => this.scene.start('Game', { level: data.level })]);
+        actions.push(['Menú principal', () => this.scene.start('Menu')]);
+        const top = last ? 482 : 466;
+        const buttons = actions.map(([label, fn], i) => makeButton(this, W / 2, top + i * 56, label, fn, { h: 46 }));
+        setupMenuNav(this, buttons, () => this.scene.start('Menu'));
         Sfx.play(data.finalKilled ? 'win' : 'lose');
     }
 }
