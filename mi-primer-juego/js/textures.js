@@ -1329,6 +1329,97 @@ function generateTextures(scene) {
         0x3a3028, 0x3e372f, 0x453d34, 0x4f4639, 0x6b1f20, 0x565141, 0x65584f, 0x7d6551,
         0x89745c, 0x998d7c, 0xd4c9b0
     ]);
+    // Jason X: Uber Jason con armadura metálica y machete (nivel en el espacio)
+    pixelMap('jasonX', [
+        '..................................................................',
+        '...........................................AAAAAAAA...............',
+        '..........................................AIDNOAMHMBA.............',
+        '.........................................ALOIBPPDILOA.............',
+        '.........................................EOMHCPONFAOPA............',
+        '.........................................IIEMOPGMLLNNA............',
+        '........................................AAHMLPPNMMKNNAA...........',
+        '........................................JKBGMPMGGKKMKKA...........',
+        '........................................ELKBNPPLMJGLMLA...........',
+        '........................................AACAMPABBKLKAAA...........',
+        '.........................................IHKMPAHFBJAIBA...........',
+        '.........................................BHKGOPAALMJBLA...........',
+        '.........................................BHGGDMMLLMMIJA...........',
+        '........................................AAHKJJKKMMMNLA............',
+        '......................................BACDADKLPLMJLFJA............',
+        '..............................AAAA..AAAAGDBAJMLLMMMNA.............',
+        '............................AFMONAABBFGGFDDBAJLMMDLEA.............',
+        '...........................AMNOKLGNNMFABCDDCBACKMMAA..............',
+        '..........................ANMMKMNJGGLLNOFCDCCBBAAAADA.............',
+        '..........................ANLNOONPNBCCBEOOBDDCBBBBACDAA...........',
+        '..........................GLLGGPONNAIHCCDLOBEECCBCCBD.AA..........',
+        '..........................EJAKLKLJDHHMPNGBLMACDDDDCACF.A..........',
+        '..........................ABHAMMOLHHGLLLFFCLNLFDE.DCD...A.........',
+        '.........................ABDIHABAFHLJLOOOOMLLBAJD.EE..DEB.........',
+        '........................AABBHHF.AFANNNMLNOPOMMKAAEEEE.CDB.........',
+        '.......................AAPFIHHH.A.ALJONNMLJMOFNFDEEEE.CCB.........',
+        '.......................APNGHHIH....AMLKKKNOKLOBEDDEEE.BAB.........',
+        '......................ADONMDIIHA...AKJGLLLLNMDNGADEDDEABA.........',
+        '......................AMLMOKCIFAB.JGAKLNNNNGBAIAACDDDDABB.........',
+        '......................AKPOKLCHAABGLONABCCCBAIEAACBCCBAABBA........',
+        '......................AAKGNEHJLACJLLDLKAABAIABOKABBBDABBCA........',
+        '.....................AFANLJFHNAAAFECOKIMONNBCNBFECBCDABCDB........',
+        '...................ACEBIFGDHMEA.BFJLKMLJLLLMNJFABDCDAABCCAA.......',
+        '...................AOMBHHHILBA..ADEFOMEGPMMDGGABDDDDAABACDA.......',
+        '..................AAMOKAHHHCA....EKLKDOKJKENJACHBDDBABAACFBA......',
+        '..................APPPNGHHHA.....AEDEKJGPNJLONBADDEAAABDCDFA......',
+        '.................AOMPNNLFHH......AKKLMKJONNBEBHCDDDAABABCDFAA.....',
+        '.................ALKJJMMHH.......AAEKLMLMJJIEMABDDDAAAAACDDEA.....',
+        '................AALDELGMHHA......AFAACMOMNMDGAHAEDEA.ABBBCDEA.....',
+        '.................DMDHFMLHHA......FHBDALOJKHANBBBDDDA.AAABCCDBA....',
+        '................ALLBMHGHHGA.....AGHEAAEMMKBHCBCBDDDA...AAACEFA....',
+        '................BNJBOGHHGA......BMBACIIADFBIFACCDDDA....ABABDFA...',
+        '................GNJHJLHHA.......AAANNAHIHAAABAADDDEAA...AACDFFDA..',
+        '................GNLHDNHBB.......ADECAMCBCAHCNBACDDEDA...AACDAAAA..',
+        '................GJMHBNFA........A.DDCAMOMONEKAIADDEFA....ACAADGA..',
+        '................AKKHBMB........AD..DDCBBNMKCALBDDDDFFA....ADFEFGB.',
+        '................EOPMJKA........A.....DCCCCCCCCDCCDAMKBA...ADGACEE.',
+        '................BBABOJ........AC....DDDDDDCCDCCADAMGGKA...AAGAADE.',
+        '................CKLJEA........A....EDDCDCCCCDCACAMMOKMA....AEAAAE.',
+        '...............BLMNKAA........A...EDDCDDDCCCBABABMGNPNAA...AAADFA.',
+        '...............KLKLKEA.......AC...DDDCDDDCCAABBFNNLGLLGA....ADEB..',
+        '..............AGMIIIAH.......A...EDCDDDDCBABBAJGLKNJJFMD..........',
+        '.............AAFFAIBCC......AA...DCDDDDCBAAACCDDEKNMJONK..........',
+        '.............ANGHAJBKA......A....DCDDDDBB..ADDDFJJLNLJMK..........',
+        '.............AALEBALAA......A....CCDDDCBA..AAECGKJKMMGLKA.........',
+        '............ANCGALAAA.......A...DDCDDCBA....AAEELLGLNLLKE.........',
+        '..........ADMKKJAA.........AD..EDDDCDBA......ABDLMGGLMJKG.........',
+        '.........AMLKLLEA..........A...CDDDDBAA.......AEGMGEKLMKKA........',
+        '........APKKKNAB...........A...DCDDDBA.........AEMFEKKNJJA........',
+        '........FLKKNA.................FDDCCA..........ACJJEGJNJLA........',
+        '......ABMKKNOA............ADD...DDCBA...........AFPNJANKLA........',
+        '.....AMNLLMLA............ABECD..DCBAB...........ACIGEIHHJA........',
+        '....ANLLKKNA.............A.CCCDDCBAB.............AIHFIIIHB........',
+        '...AOKKKINA..............A.CCCCCCBA..............AHIIIIBGMA.......',
+        '..AOIKKHMB..............ABEDCCDBBA...............ABAABBOLJA.......',
+        '.AOKHKHLFB..............A..DCCBBBA..............AMJPOIBAGB........',
+        'AMHHHJLJA..............A...DCBBBCA..............ALNNOMKABA........',
+        'ALHJHIHB..............AA..DCBBBCCA..............AIECDLLACA........',
+        'AMHIHLA...............AE..CBBBBCCA..............ALLPODLJCA........',
+        'OLII.A................A..DCBBBCCA...............AGJGLHKKB.........',
+        'LLK...................B..CBBBCCBA................GGKJKKKE.........',
+        'AA...................A..DBBBCDBA.................DJKJLMJKA........',
+        '.....................A.DECCCCCA..................CKKJLMJJ.........',
+        '.....................ADBCCDBCAA..................CLJGLMJJ.........',
+        '....................ADDFCBBCCA...................DFJGLMKK.........',
+        '....................AECBBBCDB.....................AMKKINLA........',
+        '....................BADDBACCA.....................AIFFIAB.........',
+        '....................ACECBBAA.....................CAAAAABGA........',
+        '....................AGDBCCAA.....................ANFBABMKKA.......',
+        '...................AAFFFDCA......................ALJIFBPLGGAA.....',
+        '...................AGFBAAAA.......................FJHFANNELLDBB...',
+        '..................AEGJJKJG........................CECCBEGNLOJDFCA.',
+        '..................AFFDCCCDD..........................AABELGKDCCDB.',
+        '..................AAAAAAAAA.......................AAAAAAAAAAAAAAA.',
+        '..................................................................'
+    ], [
+        0x000000, 0x050403, 0x0b0908, 0x100d0c, 0x191613, 0x231c18, 0x2a2724, 0x412519,
+        0x5d3b2a, 0x393531, 0x45413c, 0x544f4a, 0x666059, 0x7a756d, 0x948d83, 0xb4afa4
+    ]);
     // Cabeza de la madre de Jason: aparece para marcar el camino (habilidad del mundo 2)
     const MOM_MAP = [
         '..................A.AA.................',
@@ -2438,6 +2529,501 @@ function generateTextures(scene) {
         });
         g.fillStyle(0x0c3a2a); g.fillRect(27, 27, 10, 6); g.fillStyle(0x7dff4a); g.fillRect(28, 28, 3, 4); g.fillRect(32, 29, 2, 3);
         g.fillStyle(0xff4fb8); g.fillRect(28, 40, 3, 3); g.fillStyle(0x9aa2aa); g.fillRect(33, 40, 3, 3);
+    });
+    // ---------- Escenario: Manhattan de noche bajo la lluvia (Jason in the Big Apple) ----------
+    // Asfalto mojado con grietas y charcos; banqueta de losas; paso de cebra; tapa de alcantarilla
+    const asphalt = (key, base, seed) => mk(key, T, T, g => {
+        g.fillStyle(base); g.fillRect(0, 0, T, T);
+        for (let i = 0; i < 26; i++) {
+            g.fillStyle(i % 3 ? 0x2a2c32 : 0x101114, 0.9);
+            g.fillRect((i * 37 + seed * 11) % 62, (i * 23 + seed * 7) % 62, 2, 2);
+        }
+        g.lineStyle(1, 0x0c0d10, 0.9);
+        g.lineBetween(6 + seed * 4, 10, 18 + seed * 3, 24); g.lineBetween(18 + seed * 3, 24, 14 + seed * 4, 34);
+        g.fillStyle(0x3a4a66, 0.35); g.fillEllipse(42 - seed * 3, 46, 22, 7);
+        g.fillStyle(0xff4fb8, 0.12); g.fillEllipse(40 - seed * 3, 45, 10, 3);
+    });
+    asphalt('nyAsphaltA', 0x1c1d22, 0); asphalt('nyAsphaltB', 0x202127, 3);
+    const sidewalk = (key, base) => mk(key, T, T, g => {
+        tile(g, base, 0x16161a);
+        g.lineStyle(1, 0x16161a, 0.8); g.lineBetween(32, 3, 32, 61);
+        g.fillStyle(0x0c0c0e, 0.5); g.fillCircle(18, 44, 2.5); g.fillCircle(48, 18, 1.5);
+        g.fillStyle(0x6a7a96, 0.18); g.fillRect(5, 5, 54, 4);
+    });
+    sidewalk('nySidewalkA', 0x3e3f46); sidewalk('nySidewalkB', 0x44454c);
+    mk('nyCrosswalk', T, T, g => {
+        g.fillStyle(0x1c1d22); g.fillRect(0, 0, T, T);
+        g.fillStyle(0xd8d4c4, 0.75); for (let x = 4; x < T; x += 16) g.fillRect(x, 0, 9, T);
+        g.fillStyle(0x1c1d22, 0.6); g.fillRect(20, 30, 14, 5); g.fillRect(44, 12, 8, 4);
+    });
+    mk('nyManhole', T, T, g => {
+        g.fillStyle(0x1e1f24); g.fillRect(0, 0, T, T);
+        g.fillStyle(0x2e3036); g.fillCircle(32, 32, 20); g.lineStyle(3, 0x101114); g.strokeCircle(32, 32, 20);
+        g.lineStyle(2, 0x45474e); g.strokeCircle(32, 32, 13);
+        for (let i = -12; i <= 12; i += 6) g.lineBetween(32 + i, 22, 32 + i, 42);
+        g.fillStyle(0x3a4a66, 0.3); g.fillEllipse(14, 54, 16, 5);
+    });
+    // Taxi amarillo (2 casillas) con su letrero en el techo y los faros encendidos
+    mk('nyTaxi', 2 * T, T, g => {
+        g.fillStyle(0x000000, 0.5); g.fillEllipse(64, 56, 124, 14);
+        g.fillStyle(0xe8b818); g.fillRoundedRect(36, 12, 58, 22, 7); g.lineStyle(2, OLF); g.strokeRoundedRect(36, 12, 58, 22, 7);
+        g.fillStyle(0x2a3444); g.fillRoundedRect(42, 16, 21, 14, 3); g.fillRoundedRect(67, 16, 21, 14, 3);
+        g.fillStyle(0x8ab0d8, 0.4); g.fillRect(44, 17, 6, 12); g.fillRect(69, 17, 6, 12);
+        g.fillStyle(0xf2c820); g.fillRoundedRect(4, 30, 120, 22, 6); g.lineStyle(2, OLF); g.strokeRoundedRect(4, 30, 120, 22, 6);
+        g.fillStyle(0x16161a); for (let x = 10; x < 120; x += 8) g.fillRect(x, 38, 4, 4);
+        g.fillStyle(0xfff4c8); g.fillRect(118, 34, 5, 6); g.fillStyle(0xd8202e); g.fillRect(5, 34, 4, 6);
+        g.lineStyle(1, 0xa87a10); g.lineBetween(64, 32, 64, 50);
+        g.fillStyle(0xefe3c8); g.fillRoundedRect(56, 5, 18, 8, 2); g.lineStyle(1.5, OLF); g.strokeRoundedRect(56, 5, 18, 8, 2);
+        g.fillStyle(0x16161a); g.fillRect(59, 8, 12, 2);
+        [28, 100].forEach(x => {
+            g.fillStyle(0x111214); g.fillCircle(x, 52, 9); g.lineStyle(2, OLF); g.strokeCircle(x, 52, 9);
+            g.fillStyle(0x7a7f88); g.fillCircle(x, 52, 4);
+        });
+        g.fillStyle(0x8f0a1e, 0.85); g.fillCircle(84, 44, 3); g.fillRect(83, 44, 2, 6);
+    });
+    // Hidrante rojo
+    mk('nyHydrant', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 56, 36, 10);
+        g.fillStyle(0xc2172f); g.fillRoundedRect(22, 20, 20, 34, 4); g.lineStyle(2, OLF); g.strokeRoundedRect(22, 20, 20, 34, 4);
+        g.fillStyle(0xd83a4a); g.fillRect(25, 22, 4, 30);
+        g.fillStyle(0xc2172f); g.fillEllipse(32, 18, 24, 12); g.lineStyle(2, OLF); g.strokeEllipse(32, 18, 24, 12);
+        g.fillStyle(0x9a1024); g.fillRect(29, 8, 6, 6); g.lineStyle(1.5, OLF); g.strokeRect(29, 8, 6, 6);
+        [[14, 34], [44, 34]].forEach(([x, y]) => { g.fillStyle(0xa8122a); g.fillRect(x, y, 7, 9); g.lineStyle(1.5, OLF); g.strokeRect(x, y, 7, 9); });
+        g.fillStyle(0x7a0a1a); g.fillRect(20, 50, 24, 6); g.lineStyle(2, OLF); g.strokeRect(20, 50, 24, 6);
+    });
+    // Bote de basura metálico con la tapa ladeada
+    mk('nyTrash', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(34, 56, 44, 10);
+        g.fillStyle(0x6a6e76); g.fillRoundedRect(16, 20, 32, 36, 3); g.lineStyle(2, OLF); g.strokeRoundedRect(16, 20, 32, 36, 3);
+        g.lineStyle(1.5, 0x4a4e56); [24, 32, 40].forEach(x => g.lineBetween(x, 22, x, 54));
+        g.fillStyle(0x8a8e96); g.fillRect(18, 22, 4, 32);
+        g.fillStyle(0x7a7e86); g.fillEllipse(30, 15, 38, 10); g.lineStyle(2, OLF); g.strokeEllipse(30, 15, 38, 10);
+        g.fillStyle(0x5a3a1e); g.fillRect(40, 17, 8, 4); g.fillStyle(0xd8d4c4); g.fillRect(20, 17, 7, 3);
+    });
+    // Bolsas de basura apiladas con una rata
+    mk('nyBags', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 56, 58, 12);
+        [[18, 42, 15], [44, 42, 15], [30, 26, 14]].forEach(([x, y, r]) => {
+            g.fillStyle(0x16171c); g.fillCircle(x, y, r); g.lineStyle(2, 0x050506); g.strokeCircle(x, y, r);
+            g.fillStyle(0x4a5066, 0.6); g.fillEllipse(x - 4, y - 6, 8, 4);
+        });
+        g.lineStyle(2, 0x2a2c32); g.lineBetween(28, 13, 32, 9); g.lineBetween(32, 9, 34, 13);
+        g.fillStyle(0x5a5048); g.fillEllipse(48, 54, 14, 7); g.fillCircle(55, 52, 3.5);
+        g.fillStyle(0xff4a4a); g.fillCircle(56.5, 51, 1);
+        g.lineStyle(1.5, 0x8a7a70); g.lineBetween(41, 55, 34, 58);
+    });
+    // Caja de periódicos
+    mk('nyNews', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 57, 40, 10);
+        g.fillStyle(0x1f4a8a); g.fillRect(16, 14, 32, 40); g.lineStyle(2, OLF); g.strokeRect(16, 14, 32, 40);
+        g.fillStyle(0x0c1424); g.fillRect(20, 20, 24, 16);
+        g.fillStyle(0xd8d4c4); g.fillRect(22, 24, 20, 11); g.fillStyle(0x16161a); g.fillRect(24, 26, 16, 3);
+        g.fillStyle(0x8f0a1e); g.fillRect(24, 30, 7, 4);
+        g.fillStyle(0x7a7f88); g.fillRect(28, 40, 8, 3); g.fillStyle(0x2a5aa8); g.fillRect(16, 12, 32, 4);
+        g.fillStyle(0x3a3d44); g.fillRect(18, 54, 4, 4); g.fillRect(42, 54, 4, 4);
+    });
+    // Farola encendida
+    mk('nyLamp', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 26, 8);
+        g.fillStyle(0x2a2d33); g.fillRect(29, 14, 6, 44); g.lineStyle(2, OLF); g.strokeRect(29, 14, 6, 44);
+        g.fillStyle(0x1e2026); g.fillRect(25, 52, 14, 6);
+        g.lineStyle(4, 0x2a2d33); g.beginPath(); g.arc(40, 14, 8, Math.PI, Math.PI * 1.6); g.strokePath();
+        g.fillStyle(0x2a2d33); g.fillRoundedRect(36, 4, 22, 8, 3); g.lineStyle(2, OLF); g.strokeRoundedRect(36, 4, 22, 8, 3);
+        g.fillStyle(0xffe8a0); g.fillRect(39, 11, 16, 3);
+        g.fillStyle(0xffe8a0, 0.12); g.fillTriangle(36, 13, 58, 13, 47, 40);
+    });
+    // Entrada del metro: barandal, escalones que bajan y las dos farolas verdes
+    mk('nySubway', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillRect(6, 20, 54, 40);
+        g.fillStyle(0x0c0c10); g.fillRect(10, 22, 44, 36);
+        for (let y = 26, i = 0; y < 58; y += 6, i++) { g.fillStyle(0x34363e - i * 0x040404); g.fillRect(12, y, 40, 4); }
+        g.lineStyle(3, 0x1f5a3a); g.strokeRect(10, 22, 44, 36);
+        g.lineStyle(2, 0x2f7a4a); [18, 32, 46].forEach(x => g.lineBetween(x, 18, x, 22)); g.lineBetween(10, 18, 54, 18);
+        [[8, 10], [56, 10]].forEach(([x, y]) => {
+            g.lineStyle(3, 0x1f5a3a); g.lineBetween(x, y + 4, x, 24);
+            g.fillStyle(0x7dff9a); g.fillCircle(x, y, 5); g.lineStyle(1.5, OLF); g.strokeCircle(x, y, 5);
+            g.fillStyle(0xe8ffe8); g.fillCircle(x - 1.5, y - 1.5, 1.5);
+        });
+    });
+    // Contenedor de basura verde
+    mk('nyDumpster', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 62, 10);
+        g.fillStyle(0x2a5a3a); g.fillPoints([{ x: 4, y: 22 }, { x: 60, y: 22 }, { x: 56, y: 56 }, { x: 8, y: 56 }], true);
+        g.lineStyle(2, OLF); g.strokePoints([{ x: 4, y: 22 }, { x: 60, y: 22 }, { x: 56, y: 56 }, { x: 8, y: 56 }], true);
+        g.lineStyle(1.5, 0x1f4a2c); [18, 32, 46].forEach(x => g.lineBetween(x, 26, x, 52));
+        g.fillStyle(0x1f4a2c); g.fillPoints([{ x: 2, y: 22 }, { x: 62, y: 22 }, { x: 56, y: 10 }, { x: 8, y: 14 }], true);
+        g.lineStyle(2, OLF); g.strokePoints([{ x: 2, y: 22 }, { x: 62, y: 22 }, { x: 56, y: 10 }, { x: 8, y: 14 }], true);
+        g.fillStyle(0xd8d4c4); g.fillRect(20, 30, 24, 8); g.fillStyle(0x16161a); g.fillRect(23, 33, 18, 2);
+        g.fillStyle(0x8f0a1e, 0.9); g.fillRect(48, 22, 4, 9); g.fillCircle(50, 32, 2.5);
+    });
+    // Cabina telefónica
+    mk('nyBooth', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 59, 40, 8);
+        g.fillStyle(0x7a7f88); g.fillRect(16, 4, 32, 54); g.lineStyle(2, OLF); g.strokeRect(16, 4, 32, 54);
+        g.fillStyle(0x1f4a8a); g.fillRect(16, 4, 32, 9); g.fillStyle(0xefe3c8); g.fillRect(21, 7, 22, 3);
+        g.fillStyle(0x2a3444); g.fillRect(20, 16, 24, 38);
+        g.fillStyle(0x8ab0d8, 0.3); g.fillRect(22, 18, 5, 34);
+        g.fillStyle(0x3a3d44); g.fillRect(30, 26, 10, 14); g.fillStyle(0x111214); g.fillRect(32, 22, 3, 12);
+        g.lineStyle(1.5, 0x111214); g.lineBetween(33, 34, 33, 46);
+    });
+    // Barrera de obra a rayas con un cono
+    mk('nyBarrier', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 60, 10);
+        g.lineStyle(3, 0x5a5f66); g.lineBetween(10, 34, 6, 58); g.lineBetween(14, 34, 18, 58); g.lineBetween(50, 34, 46, 58); g.lineBetween(54, 34, 58, 58);
+        g.fillStyle(0xefe3c8); g.fillRect(4, 20, 56, 14); g.lineStyle(2, OLF); g.strokeRect(4, 20, 56, 14);
+        g.fillStyle(0xff7a1a); for (let x = 4; x < 60; x += 14) g.fillTriangle(x, 34, x + 7, 34, x + 14, 20);
+        g.fillStyle(0xffb020); g.fillCircle(10, 16, 3.5); g.fillCircle(54, 16, 3.5);
+        g.fillStyle(0xff7a1a); g.fillTriangle(30, 58, 42, 58, 36, 38); g.fillStyle(0xefe3c8); g.fillRect(33, 47, 6, 3);
+        g.lineStyle(1.5, OLF); g.strokeTriangle(30, 58, 42, 58, 36, 38);
+    });
+    // Carrito de hot dogs con sombrilla
+    mk('nyHotdog', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 56, 10);
+        g.lineStyle(2, 0x7a7f88); g.lineBetween(32, 10, 32, 30);
+        g.fillStyle(0xd8202e); g.fillTriangle(6, 14, 32, 2, 32, 14); g.fillStyle(0xf2c820); g.fillTriangle(32, 2, 58, 14, 32, 14);
+        g.lineStyle(2, OLF); g.strokeTriangle(6, 14, 58, 14, 32, 2);
+        g.fillStyle(0xb8bcc4); g.fillRect(8, 30, 48, 20); g.lineStyle(2, OLF); g.strokeRect(8, 30, 48, 20);
+        g.fillStyle(0xd8202e); g.fillRect(8, 38, 48, 5);
+        g.fillStyle(0xc87a3a); g.fillRoundedRect(14, 25, 16, 5, 2); g.fillStyle(0xf2c820); g.fillRect(16, 26, 12, 1.5);
+        g.fillStyle(0x111214); g.fillCircle(16, 52, 5); g.fillCircle(48, 52, 5);
+        g.lineStyle(2, 0x7a7f88); g.lineBetween(56, 34, 62, 28);
+    });
+    // Buzón azul
+    mk('nyMailbox', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 38, 8);
+        g.fillStyle(0x1f3a7a); g.fillRect(18, 22, 28, 28); g.fillEllipse(32, 22, 28, 16);
+        g.lineStyle(2, OLF); g.strokeEllipse(32, 22, 28, 16); g.strokeRect(18, 22, 28, 28);
+        g.fillStyle(0x1f3a7a); g.fillRect(19, 20, 26, 6);
+        g.fillStyle(0x0c1424); g.fillRect(24, 24, 16, 3); g.fillStyle(0xefe3c8); g.fillRect(26, 34, 12, 6);
+        g.fillStyle(0x16161a); [[20, 50], [40, 50]].forEach(([x, y]) => g.fillRect(x, y, 4, 8));
+    });
+    // Poste con los letreros verdes de la esquina
+    {
+        const t = scene.textures.createCanvas('nySign', T, T), c = t.getContext();
+        c.fillStyle = 'rgba(0,0,0,0.45)'; c.fillRect(22, 56, 20, 5);
+        c.fillStyle = '#2a2d33'; c.fillRect(29, 6, 5, 52);
+        c.fillStyle = '#1f6a3a'; c.fillRect(4, 8, 56, 13); c.fillRect(10, 24, 46, 13);
+        c.strokeStyle = '#efe3c8'; c.lineWidth = 1; c.strokeRect(5.5, 9.5, 53, 10); c.strokeRect(11.5, 25.5, 43, 10);
+        c.fillStyle = '#efe3c8'; c.font = 'bold 9px Impact, sans-serif'; c.textAlign = 'center';
+        c.fillText('BROADWAY', 32, 18); c.fillText('W 42 ST', 33, 34);
+        c.fillStyle = '#c2172f'; c.fillRect(24, 42, 15, 10); c.fillStyle = '#efe3c8'; c.font = 'bold 7px sans-serif'; c.fillText('STOP', 31.5, 50);
+        t.refresh();
+    }
+    // Muro de ladrillo con un letrero de neón ("HOTEL", con la T fundida)
+    {
+        const t = scene.textures.createCanvas('nyNeon', T, T), c = t.getContext();
+        c.fillStyle = '#4a1e1a'; c.fillRect(0, 0, T, T);
+        for (let y = 0; y < T; y += 8) for (let x = (y / 8) % 2 ? -8 : 0; x < T; x += 16) {
+            c.fillStyle = (x * 3 + y) % 5 ? '#6a2a22' : '#5a2420'; c.fillRect(x + 1, y + 1, 14, 6);
+        }
+        c.fillStyle = 'rgba(0,0,0,0.55)'; c.fillRect(4, 14, 56, 22);
+        c.strokeStyle = '#140a0c'; c.lineWidth = 2; c.strokeRect(4, 14, 56, 22);
+        c.font = 'bold 14px Impact, sans-serif'; c.textAlign = 'center';
+        c.shadowColor = '#ff4fb8'; c.shadowBlur = 6; c.fillStyle = '#ffb0e0';
+        c.fillText('HO', 21, 31); c.fillText('EL', 45, 31);
+        c.shadowBlur = 0; c.fillStyle = '#5a3a4a'; c.fillText('T', 33, 31);
+        c.fillStyle = 'rgba(0,0,0,0.35)'; c.fillRect(0, 54, T, 10);
+        t.refresh();
+    }
+    // Gota de lluvia y vapor de la alcantarilla
+    mk('rainDrop', 2, 14, g => { g.fillStyle(0xaec4e8, 0.55); g.fillRect(0, 0, 2, 14); });
+    mk('steam', 96, 96, g => {
+        for (let i = 0; i < 8; i++) { g.fillStyle(0xd8dce4, 0.05); g.fillCircle(48, 48, 48 - i * 6); }
+    });
+    // ---------- Escenario: nave espacial Grendel (Jason X) ----------
+    // Placas de metal remachadas; rejilla con luz por debajo; ventana al espacio en el piso
+    const deck = (key, base) => mk(key, T, T, g => {
+        g.fillStyle(0x0c0e14); g.fillRect(0, 0, T, T);
+        g.fillStyle(base); g.fillRect(2, 2, T - 4, T - 4);
+        g.fillStyle(0xffffff, 0.06); g.fillRect(2, 2, T - 4, 2);
+        g.lineStyle(1, 0x0c0e14, 0.7); g.lineBetween(2, 32, 62, 32);
+        g.fillStyle(0x5a6274); [[7, 7], [57, 7], [7, 57], [57, 57], [7, 27], [57, 37]].forEach(([x, y]) => g.fillCircle(x, y, 1.6));
+        g.fillStyle(0x000000, 0.25); g.fillRect(14, 40, 12, 3);
+    });
+    deck('spDeckA', 0x2a2f3a); deck('spDeckB', 0x262a34);
+    mk('spGrate', T, T, g => {
+        g.fillStyle(0x0c0e14); g.fillRect(0, 0, T, T);
+        g.fillStyle(0x0a3a4a); g.fillRect(4, 4, 56, 56);
+        g.fillStyle(0x2ad8ff, 0.25); g.fillRect(8, 8, 48, 48);
+        g.fillStyle(0x323846); for (let x = 4; x < 60; x += 8) g.fillRect(x, 4, 3, 56);
+        g.lineStyle(2, 0x0c0e14); g.strokeRect(4, 4, 56, 56);
+    });
+    mk('spWindowFloor', T, T, g => {
+        g.fillStyle(0x0c0e14); g.fillRect(0, 0, T, T);
+        g.fillStyle(0x03040a); g.fillRect(5, 5, 54, 54);
+        [[12, 14], [40, 10], [50, 30], [20, 44], [33, 26], [46, 52], [10, 34]].forEach(([x, y], i) => {
+            g.fillStyle(0xffffff, 0.5 + (i % 3) * 0.2); g.fillRect(x, y, 2, 2);
+        });
+        g.fillStyle(0x2a6ad8, 0.9); g.fillCircle(46, 46, 9); g.fillStyle(0x3aa86a, 0.8); g.fillEllipse(43, 44, 8, 5);
+        g.fillStyle(0xffffff, 0.08); g.fillTriangle(5, 5, 30, 5, 5, 30);
+        g.lineStyle(3, 0x4a5262); g.strokeRect(5, 5, 54, 54);
+    });
+    // Cápsula criogénica con la escarcha y la luz azul
+    mk('spCryo', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 46, 10);
+        g.fillStyle(0x4a5262); g.fillRoundedRect(12, 4, 40, 54, 12); g.lineStyle(2, OLF); g.strokeRoundedRect(12, 4, 40, 54, 12);
+        g.fillStyle(0x0a2a3a); g.fillRoundedRect(18, 10, 28, 38, 9);
+        g.fillStyle(0x6ad8ff, 0.55); g.fillRoundedRect(20, 12, 24, 34, 8);
+        g.fillStyle(0x1a3a4a, 0.8); g.fillEllipse(32, 22, 10, 9); g.fillRect(27, 27, 10, 16);
+        g.fillStyle(0xe8f8ff, 0.6); g.fillRect(22, 14, 3, 26); g.fillCircle(38, 40, 3);
+        g.fillStyle(0x2ad8ff); g.fillRect(24, 51, 16, 3);
+    });
+    // Consola de mando (2 casillas) con pantallas verdes
+    mk('spConsole', 2 * T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillRect(6, 52, 118, 10);
+        g.fillStyle(0x3a4150); g.fillRect(4, 10, 120, 44); g.lineStyle(2, OLF); g.strokeRect(4, 10, 120, 44);
+        g.fillStyle(0x2a303c); g.fillPoints([{ x: 4, y: 36 }, { x: 124, y: 36 }, { x: 118, y: 54 }, { x: 10, y: 54 }], true);
+        [[12, 16], [48, 16], [84, 16]].forEach(([x, y], i) => {
+            g.fillStyle(0x061a10); g.fillRect(x, y, 32, 17);
+            g.fillStyle(i === 1 ? 0xff3a3a : 0x3aff8a, 0.8);
+            for (let k = 0; k < 4; k++) g.fillRect(x + 3, y + 3 + k * 3.5, 6 + ((k * 7 + i * 5) % 20), 1.5);
+            g.lineStyle(1.5, OLF); g.strokeRect(x, y, 32, 17);
+        });
+        [[16, 0xff3a3a], [28, 0xffd23a], [40, 0x3aff8a], [88, 0x2ad8ff], [100, 0xff3a3a], [112, 0x3aff8a]].forEach(([x, c]) => {
+            g.fillStyle(c); g.fillRect(x, 42, 6, 4);
+        });
+        g.fillStyle(0x8f0a1e, 0.9); g.fillCircle(66, 46, 4); g.fillRect(64, 46, 3, 7);
+    });
+    // Contenedores de carga apilados
+    mk('spCrate', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 58, 10);
+        [[6, 28, 30, 28, 0x5a6a4a], [30, 26, 28, 30, 0x6a5a3a], [12, 6, 30, 24, 0x4a5a6a]].forEach(([x, y, w, h, c]) => {
+            g.fillStyle(c); g.fillRect(x, y, w, h); g.lineStyle(2, OLF); g.strokeRect(x, y, w, h);
+            g.fillStyle(0xffd23a); for (let k = 0; k < w - 4; k += 8) g.fillTriangle(x + 2 + k, y + h - 3, x + 6 + k, y + h - 3, x + 4 + k, y + h - 7);
+            g.fillStyle(0xffffff, 0.12); g.fillRect(x + 2, y + 2, w - 4, 3);
+        });
+        g.fillStyle(0xefe3c8); g.fillRect(17, 12, 14, 4);
+    });
+    // Tanque de gas con medidor
+    mk('spTank', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 40, 10);
+        g.fillStyle(0x8a95a8); g.fillRoundedRect(18, 8, 28, 50, 12); g.lineStyle(2, OLF); g.strokeRoundedRect(18, 8, 28, 50, 12);
+        g.fillStyle(0xb8c4d4); g.fillRect(22, 14, 5, 38);
+        g.fillStyle(0xd8202e); g.fillRect(18, 28, 28, 6);
+        g.fillStyle(0x3a4150); g.fillRect(28, 2, 8, 8); g.lineStyle(1.5, OLF); g.strokeRect(28, 2, 8, 8);
+        g.fillStyle(0xefe3c8); g.fillCircle(32, 44, 5); g.lineStyle(1.5, OLF); g.strokeCircle(32, 44, 5);
+        g.lineStyle(1.5, 0xd8202e); g.lineBetween(32, 44, 35, 41);
+    });
+    // Barriles con franjas de peligro
+    mk('spHazard', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 58, 10);
+        [[20, 0], [44, 4]].forEach(([x, dy]) => {
+            g.fillStyle(0xd8a020); g.fillRect(x - 12, 20 + dy, 24, 34 - dy); g.lineStyle(2, OLF); g.strokeRect(x - 12, 20 + dy, 24, 34 - dy);
+            g.fillStyle(0x16161a); for (let k = 0; k < 24; k += 8) g.fillTriangle(x - 12 + k, 30 + dy, x - 8 + k, 30 + dy, x - 12 + k + 8, 38 + dy);
+            g.fillStyle(0xe8b830); g.fillEllipse(x, 20 + dy, 24, 8); g.lineStyle(2, OLF); g.strokeEllipse(x, 20 + dy, 24, 8);
+        });
+        g.fillStyle(0x7dff4a, 0.8); g.fillEllipse(30, 57, 22, 5);
+    });
+    // Androide desactivado tirado contra la pared
+    mk('spDroid', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 54, 10);
+        g.fillStyle(0xc8ccd4); g.fillRoundedRect(20, 24, 24, 26, 6); g.lineStyle(2, OLF); g.strokeRoundedRect(20, 24, 24, 26, 6);
+        g.fillStyle(0xd8dce4); g.fillCircle(30, 15, 10); g.lineStyle(2, OLF); g.strokeCircle(30, 15, 10);
+        g.fillStyle(0x16161a); g.fillRect(24, 12, 13, 4); g.fillStyle(0xff3a3a); g.fillRect(26, 13, 3, 2);
+        g.lineStyle(5, OLF); g.lineBetween(18, 30, 8, 48); g.lineBetween(46, 30, 56, 50); g.lineBetween(26, 50, 16, 58); g.lineBetween(38, 50, 50, 58);
+        g.lineStyle(3, 0xb8bcc4); g.lineBetween(18, 30, 8, 48); g.lineBetween(46, 30, 56, 50); g.lineBetween(26, 50, 16, 58); g.lineBetween(38, 50, 50, 58);
+        g.lineStyle(1.5, 0xffd23a); g.lineBetween(42, 26, 47, 20); g.lineBetween(47, 20, 45, 16);
+        g.fillStyle(0x2ad8ff); g.fillRect(28, 32, 8, 3);
+    });
+    // Proyector holográfico: el campamento falso del holodeck
+    mk('spHolo', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 46, 10);
+        g.fillStyle(0x3a4150); g.fillEllipse(32, 52, 40, 12); g.lineStyle(2, OLF); g.strokeEllipse(32, 52, 40, 12);
+        g.fillStyle(0x2ad8ff, 0.18); g.fillTriangle(14, 50, 50, 50, 32, 4);
+        g.fillStyle(0x2ad8ff, 0.7); g.fillTriangle(22, 40, 42, 40, 32, 14);
+        g.fillStyle(0x0a3a4a, 0.6); g.fillRect(30, 38, 4, 6);
+        g.lineStyle(1, 0xaef0ff, 0.6); [20, 28, 36].forEach(y => g.lineBetween(14 + (52 - y) * 0.3, y, 50 - (52 - y) * 0.3, y));
+        g.fillStyle(0xaef0ff); g.fillEllipse(32, 50, 20, 4);
+    });
+    // Compuerta blindada cerrada
+    mk('spDoor', T, T, g => {
+        g.fillStyle(0x3a4150); g.fillRect(0, 0, T, T);
+        g.fillStyle(0x4a5262); g.fillRect(6, 6, 52, 54); g.lineStyle(2, OLF); g.strokeRect(6, 6, 52, 54);
+        g.lineStyle(2, OLF); g.lineBetween(32, 6, 32, 60);
+        g.fillStyle(0xd8a020); for (let y = 10; y < 58; y += 12) { g.fillTriangle(8, y, 14, y, 8, y + 6); g.fillTriangle(56, y + 6, 50, y + 6, 56, y); }
+        g.fillStyle(0xff3a3a); g.fillRect(26, 14, 12, 4);
+        g.fillStyle(0x000000, 0.35); g.fillRect(0, 56, T, 8);
+    });
+    // Pared del casco con ojo de buey a las estrellas
+    mk('spPort', T, T, g => {
+        g.fillStyle(0x323846); g.fillRect(0, 0, T, T);
+        g.lineStyle(1, 0x1a1e28); g.lineBetween(0, 10, T, 10); g.lineBetween(0, 54, T, 54);
+        g.fillStyle(0x03040a); g.fillCircle(32, 32, 17);
+        g.fillStyle(0xffffff); [[24, 26], [38, 22], [30, 40], [42, 36]].forEach(([x, y]) => g.fillRect(x, y, 1.5, 1.5));
+        g.fillStyle(0xd8a86a, 0.9); g.fillCircle(38, 38, 6);
+        g.lineStyle(4, 0x6a7284); g.strokeCircle(32, 32, 18); g.lineStyle(2, OLF); g.strokeCircle(32, 32, 20);
+        g.fillStyle(0x8a95a8); [0, 1, 2, 3, 4, 5].forEach(i => g.fillCircle(32 + Math.cos(i * 1.047) * 18, 32 + Math.sin(i * 1.047) * 18, 1.6));
+        g.fillStyle(0x000000, 0.35); g.fillRect(0, 56, T, 8);
+    });
+    // Tubos y válvulas que salen del piso
+    mk('spPipes', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 56, 10);
+        [[14, 0x6a7284], [30, 0x8a95a8], [46, 0x5a6274]].forEach(([x, c], i) => {
+            g.fillStyle(c); g.fillRect(x - 5, 6 + i * 4, 10, 52 - i * 4); g.lineStyle(2, OLF); g.strokeRect(x - 5, 6 + i * 4, 10, 52 - i * 4);
+            g.fillStyle(0xffffff, 0.15); g.fillRect(x - 3, 8 + i * 4, 2, 48 - i * 4);
+            g.fillStyle(0x3a4150); g.fillRect(x - 7, 20 + i * 8, 14, 4);
+        });
+        g.fillStyle(0xd8202e); g.fillCircle(30, 34, 5); g.lineStyle(1.5, OLF); g.strokeCircle(30, 34, 5);
+        g.fillStyle(0xe8f8ff, 0.5); g.fillCircle(50, 8, 4); g.fillCircle(54, 4, 2.5);
+    });
+    // Camilla médica con una sábana manchada
+    mk('spBed', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 58, 10);
+        g.lineStyle(3, 0x8a95a8); g.lineBetween(10, 38, 10, 56); g.lineBetween(54, 38, 54, 56);
+        g.fillStyle(0xb8c4d4); g.fillRect(4, 28, 56, 12); g.lineStyle(2, OLF); g.strokeRect(4, 28, 56, 12);
+        g.fillStyle(0xe8ecf0); g.fillRoundedRect(6, 20, 52, 12, 4); g.lineStyle(1.5, OLF); g.strokeRoundedRect(6, 20, 52, 12, 4);
+        g.fillStyle(0xd8dce4); g.fillEllipse(14, 22, 12, 7);
+        g.fillStyle(0x8f0a1e, 0.85); g.fillEllipse(38, 26, 14, 6); g.fillRect(44, 30, 2, 9);
+        g.lineStyle(2, 0x6a7284); g.lineBetween(56, 20, 56, 4); g.fillStyle(0xaef0ff, 0.7); g.fillRoundedRect(52, 4, 8, 10, 2);
+    });
+    // Letrero con el nombre de la nave
+    {
+        const t = scene.textures.createCanvas('spSign', T, T), c = t.getContext();
+        c.fillStyle = '#323846'; c.fillRect(0, 0, T, T);
+        c.fillStyle = '#1a1e28'; c.fillRect(4, 12, 56, 30);
+        c.strokeStyle = '#6a7284'; c.lineWidth = 2; c.strokeRect(4, 12, 56, 30);
+        c.font = 'bold 11px Impact, sans-serif'; c.textAlign = 'center';
+        c.fillStyle = '#ffd23a'; c.fillText('GRENDEL', 32, 26);
+        c.font = 'bold 8px sans-serif'; c.fillStyle = '#2ad8ff'; c.fillText('DECK 4  ·  LAB', 32, 37);
+        c.fillStyle = '#d8a020'; for (let x = 0; x < T; x += 10) { c.beginPath(); c.moveTo(x, 50); c.lineTo(x + 5, 50); c.lineTo(x + 10, 56); c.lineTo(x + 5, 56); c.fill(); }
+        c.fillStyle = 'rgba(0,0,0,0.35)'; c.fillRect(0, 56, T, 8);
+        t.refresh();
+    }
+    // Chispa y estrella para el ambiente
+    mk('spStar', 4, 4, g => { g.fillStyle(0xffffff); g.fillRect(1, 0, 2, 4); g.fillRect(0, 1, 4, 2); });
+    // ---------- Escenario: la cabaña de Jason en el bosque, con el altar a su madre ----------
+    // Piso de tablones viejos (adentro)
+    const planks = (key, base, seed) => mk(key, T, T, g => {
+        g.fillStyle(0x140c08); g.fillRect(0, 0, T, T);
+        for (let i = 0; i < 4; i++) {
+            g.fillStyle(i % 2 ? base : base - 0x060402); g.fillRect(1, i * 16 + 1, T - 2, 14);
+            g.fillStyle(0xffffff, 0.05); g.fillRect(1, i * 16 + 1, T - 2, 2);
+            const j = 10 + ((i * 23 + seed * 17) % 40); g.fillStyle(0x140c08); g.fillRect(j, i * 16 + 1, 2, 14);
+            g.fillStyle(0x2a1a10); g.fillCircle(j - 5, i * 16 + 8, 1.2); g.fillCircle(j + 6, i * 16 + 8, 1.2);
+        }
+        g.fillStyle(0x3a0a10, 0.5); g.fillEllipse(20 + seed * 18, 40 - seed * 12, 10, 5);
+    });
+    planks('shFloorA', 0x4a3220, 0); planks('shFloorB', 0x45301e, 1);
+    // Paredes de troncos: horizontal (fila de arriba), vertical (lado izquierdo) y esquina
+    mk('shWallH', T, T, g => {
+        g.fillStyle(0x1a120c); g.fillRect(0, 0, T, T);
+        for (let y = 4; y < 60; y += 11) {
+            g.fillStyle(y % 22 ? 0x6a4424 : 0x5a3a1e); g.fillRoundedRect(0, y, T, 10, 4);
+            g.fillStyle(0x8a5a30, 0.5); g.fillRect(0, y + 2, T, 2);
+            g.lineStyle(1, OLF); g.strokeRoundedRect(0, y, T, 10, 4);
+        }
+        g.fillStyle(0x000000, 0.35); g.fillRect(0, 56, T, 8);
+    });
+    mk('shWallV', T, T, g => {
+        g.fillStyle(0x1a120c); g.fillRect(0, 0, T, T);
+        for (let x = 4; x < 60; x += 11) {
+            g.fillStyle(x % 22 ? 0x6a4424 : 0x5a3a1e); g.fillRoundedRect(x, 0, 10, T, 4);
+            g.fillStyle(0x8a5a30, 0.5); g.fillRect(x + 2, 0, 2, T);
+            g.lineStyle(1, OLF); g.strokeRoundedRect(x, 0, 10, T, 4);
+        }
+        g.fillStyle(0x000000, 0.3); g.fillRect(56, 0, 8, T);
+    });
+    mk('shCorner', T, T, g => {
+        g.fillStyle(0x1a120c); g.fillRect(0, 0, T, T);
+        for (let i = 0; i < 4; i++) {
+            const r = 26 - i * 6; g.fillStyle(i % 2 ? 0x6a4424 : 0x8a5a30); g.fillCircle(32, 32, r);
+        }
+        g.lineStyle(2, OLF); g.strokeCircle(32, 32, 26);
+        g.lineStyle(1, 0x4a2e18); g.strokeCircle(32, 32, 14); g.strokeCircle(32, 32, 6);
+    });
+    // Pared con el marco de la puerta: la hoja abierta pegada a la pared, junto al hueco
+    mk('shWallDoor', T, T, g => {
+        g.fillStyle(0x1a120c); g.fillRect(0, 0, T, T);
+        for (let x = 4; x < 60; x += 11) {
+            g.fillStyle(x % 22 ? 0x6a4424 : 0x5a3a1e); g.fillRoundedRect(x, 0, 10, T, 4);
+            g.lineStyle(1, OLF); g.strokeRoundedRect(x, 0, 10, T, 4);
+        }
+        g.fillStyle(0x3a2412); g.fillRect(40, 8, 24, 56); g.lineStyle(2, OLF); g.strokeRect(40, 8, 24, 56);
+        g.lineStyle(1, 0x2a1a0c); [48, 56].forEach(x => g.lineBetween(x, 10, x, 62));
+        g.fillStyle(0x9aa2aa); g.fillCircle(44, 38, 2);
+    });
+    // Altar: mesa con mantel, velas y el suéter de la madre (la cabeza se dibuja encima con 'momHead')
+    mk('shAltar', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 60, 10);
+        g.lineStyle(4, 0x3a2412); g.lineBetween(8, 40, 8, 58); g.lineBetween(56, 40, 56, 58);
+        g.fillStyle(0x4a2e18); g.fillRect(2, 34, 60, 8); g.lineStyle(2, OLF); g.strokeRect(2, 34, 60, 8);
+        g.fillStyle(0x6a6a5a); g.fillPoints([{ x: 4, y: 36 }, { x: 60, y: 36 }, { x: 56, y: 52 }, { x: 8, y: 52 }], true);
+        g.fillStyle(0x4a5a7a); g.fillRoundedRect(14, 26, 36, 14, 4); g.lineStyle(1.5, OLF); g.strokeRoundedRect(14, 26, 36, 14, 4);
+        g.lineStyle(1, 0x3a4a6a); [20, 26, 32, 38, 44].forEach(x => g.lineBetween(x, 28, x, 38));
+        [[6, 22], [58, 22], [10, 28]].forEach(([x, y]) => {
+            g.fillStyle(0xe8dcc0); g.fillRect(x - 2, y, 4, 34 - y); g.lineStyle(1, OLF); g.strokeRect(x - 2, y, 4, 34 - y);
+            g.fillStyle(0xffb020); g.fillEllipse(x, y - 4, 4, 7); g.fillStyle(0xfff2a0); g.fillEllipse(x, y - 3, 2, 3);
+        });
+        g.fillStyle(0xe8dcc0, 0.8); g.fillRect(52, 34, 3, 6);
+    });
+    // Cama sucia con el colchón manchado
+    mk('shBed', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 62, 10);
+        g.fillStyle(0x3a2412); g.fillRect(2, 22, 60, 30); g.lineStyle(2, OLF); g.strokeRect(2, 22, 60, 30);
+        g.fillStyle(0x8a7a5a); g.fillRect(6, 24, 52, 22);
+        g.fillStyle(0x6a5a3a); g.fillEllipse(30, 34, 22, 10); g.fillStyle(0x5a1a14, 0.8); g.fillEllipse(44, 38, 12, 7);
+        g.fillStyle(0xb8a888); g.fillRoundedRect(8, 26, 14, 9, 3);
+        g.fillStyle(0x3a2412); g.fillRect(2, 12, 6, 42); g.lineStyle(2, OLF); g.strokeRect(2, 12, 6, 42);
+    });
+    // Estufa de leña con el fuego encendido
+    mk('shStove', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 48, 10);
+        g.fillStyle(0x2a2a30); g.fillRect(26, 0, 10, 20); g.lineStyle(2, OLF); g.strokeRect(26, 0, 10, 20);
+        g.fillStyle(0x34343c); g.fillRoundedRect(10, 18, 44, 34, 4); g.lineStyle(2, OLF); g.strokeRoundedRect(10, 18, 44, 34, 4);
+        g.fillStyle(0x0c0a08); g.fillRect(18, 28, 28, 16);
+        g.fillStyle(0xc2341a); g.fillTriangle(20, 44, 44, 44, 32, 30); g.fillStyle(0xffb020); g.fillTriangle(25, 44, 39, 44, 32, 35);
+        g.lineStyle(2, 0x5a5a62); [24, 32, 40].forEach(x => g.lineBetween(x, 28, x, 44));
+        g.fillStyle(0x2a2a30); g.fillRect(12, 52, 6, 6); g.fillRect(46, 52, 6, 6);
+    });
+    // Mesa con un quinqué encendido
+    mk('shTable', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 54, 10);
+        g.lineStyle(4, 0x3a2412); g.lineBetween(12, 36, 10, 58); g.lineBetween(52, 36, 54, 58);
+        g.fillStyle(0x5a3a1e); g.fillRect(4, 30, 56, 9); g.lineStyle(2, OLF); g.strokeRect(4, 30, 56, 9);
+        g.fillStyle(0x8a6a3a); g.fillRect(24, 26, 16, 5); g.fillStyle(0xd8a83a, 0.85); g.fillEllipse(32, 18, 12, 16);
+        g.lineStyle(1.5, OLF); g.strokeEllipse(32, 18, 12, 16); g.fillStyle(0xfff2a0); g.fillEllipse(32, 19, 4, 7);
+        g.fillStyle(0x2a2a30); g.fillRect(29, 6, 6, 4);
+        g.fillStyle(0xd8d4c4); g.fillRect(44, 26, 10, 4); g.fillStyle(0x9aa2aa); g.fillRect(8, 27, 12, 3);
+    });
+    // Repisa con frascos
+    mk('shShelf', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillRect(6, 54, 54, 8);
+        g.fillStyle(0x3a2412); g.fillRect(4, 4, 56, 52); g.lineStyle(2, OLF); g.strokeRect(4, 4, 56, 52);
+        g.fillStyle(0x1a120c); g.fillRect(8, 8, 48, 18); g.fillRect(8, 32, 48, 20);
+        [[14, 12, 0x6a8a4a], [24, 14, 0x8a6a3a], [34, 10, 0x5a1a14], [46, 13, 0x9aa28a]].forEach(([x, y, c]) => {
+            g.fillStyle(c); g.fillRect(x - 4, y, 8, 26 - y); g.lineStyle(1, OLF); g.strokeRect(x - 4, y, 8, 26 - y);
+        });
+        [[16, 38, 0xb8a888], [30, 36, 0x4a5a3a], [44, 40, 0x8a2a1a]].forEach(([x, y, c]) => {
+            g.fillStyle(c); g.fillRect(x - 5, y, 10, 52 - y); g.lineStyle(1, OLF); g.strokeRect(x - 5, y, 10, 52 - y);
+        });
+    });
+    // Baúl viejo con cerrojo
+    mk('shTrunk', T, T, g => {
+        g.fillStyle(0x000000, 0.45); g.fillEllipse(32, 58, 58, 10);
+        g.fillStyle(0x5a3a1e); g.fillRect(6, 28, 52, 26); g.lineStyle(2, OLF); g.strokeRect(6, 28, 52, 26);
+        g.fillStyle(0x6a4424); g.fillRoundedRect(6, 18, 52, 14, 6); g.lineStyle(2, OLF); g.strokeRoundedRect(6, 18, 52, 14, 6);
+        g.fillStyle(0x7a7f88); [14, 50].forEach(x => g.fillRect(x - 2, 18, 4, 36));
+        g.fillStyle(0xb8a040); g.fillRect(28, 30, 8, 8); g.lineStyle(1, OLF); g.strokeRect(28, 30, 8, 8);
+    });
+    // Montón de huesos y un cráneo
+    mk('shBones', T, T, g => {
+        g.fillStyle(0x000000, 0.4); g.fillEllipse(32, 54, 54, 12);
+        g.lineStyle(5, OLF);
+        [[10, 48, 40, 40], [20, 36, 52, 50], [14, 54, 46, 54]].forEach(([a, b, c, d]) => g.lineBetween(a, b, c, d));
+        g.lineStyle(3, 0xe0d4b8);
+        [[10, 48, 40, 40], [20, 36, 52, 50], [14, 54, 46, 54]].forEach(([a, b, c, d]) => g.lineBetween(a, b, c, d));
+        g.fillStyle(0xe0d4b8); g.fillCircle(32, 30, 11); g.fillRect(26, 36, 12, 8); g.lineStyle(2, OLF); g.strokeCircle(32, 30, 11);
+        g.fillStyle(0x16100c); g.fillCircle(28, 30, 3); g.fillCircle(36, 30, 3); g.fillTriangle(31, 34, 33, 34, 32, 37);
+        g.fillStyle(0x8f0a1e, 0.8); g.fillEllipse(46, 46, 10, 4);
+    });
+    // Velas sueltas en el piso
+    mk('shCandles', T, T, g => {
+        g.fillStyle(0x000000, 0.4); g.fillEllipse(32, 54, 48, 10);
+        g.fillStyle(0xe8dcc0, 0.5); g.fillEllipse(32, 52, 40, 8);
+        [[18, 30, 16], [32, 22, 24], [46, 32, 14], [26, 38, 10], [40, 40, 9]].forEach(([x, y, h]) => {
+            g.fillStyle(0xe8dcc0); g.fillRect(x - 3, y, 6, h); g.lineStyle(1, OLF); g.strokeRect(x - 3, y, 6, h);
+            g.fillStyle(0xffb020); g.fillEllipse(x, y - 4, 4, 7); g.fillStyle(0xfff2a0); g.fillEllipse(x, y - 3, 2, 3);
+        });
     });
     // Niebla del lago que cruza el tablero
     mk('fog', 256, 128, g => {

@@ -97,10 +97,12 @@ class GameScene extends Phaser.Scene {
                     this.add.image(this.cx(c), this.cy(r), floors[(r + c) % 2]);
                     // Los objetos de varias casillas (w) se centran sobre todas ellas
                     if (ob && ob.tex) this.add.image(this.cx(c) + ((ob.w || 1) - 1) * T / 2, this.cy(r), ob.tex).setDepth(2);
+                    // Algo puesto encima del objeto (la cabeza de la madre sobre el altar)
+                    if (ob && ob.top) this.add.image(this.cx(c), this.cy(r) + ob.top.dy, ob.top.tex).setScale(ob.top.scale).setDepth(3);
                     // Resplandor que late alrededor de algunos obstáculos (calor de la freidora, luces del árbol)
                     if (ob && ob.glow) {
-                        const heat = this.add.image(this.cx(c), this.cy(r), 'light').setDepth(1)
-                            .setBlendMode(Phaser.BlendModes.ADD).setScale(0.55).setTint(ob.glow === true ? 0xff5a1a : ob.glow);
+                        const heat = this.add.image(this.cx(c), this.cy(r), this.glowTex(ob.glow === true ? 0xff5a1a : ob.glow)).setDepth(1)
+                            .setBlendMode(Phaser.BlendModes.ADD).setScale(0.55);
                         this.tweens.add({ targets: heat, alpha: 0.45, scale: 0.6, duration: 500, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
                     }
                     continue;
@@ -169,6 +171,8 @@ class GameScene extends Phaser.Scene {
         if (theme && theme.festive) { this.drawFestive(); return; }
         if (theme && theme.spooky) { this.drawSpooky(); return; }
         if (theme && theme.foggy) { this.drawFoggy(); return; }
+        if (theme && theme.rainy) { this.drawRainy(); return; }
+        if (theme && theme.space) { this.drawSpace(); return; }
         // Foquitos de feria sobre el tablero
         for (let i = 0; i < 22; i++) {
             const b = this.add.circle(this.ox + 16 + i * ((COLS * T - 32) / 21), this.oy - 7, 3.5,
@@ -262,9 +266,20 @@ class GameScene extends Phaser.Scene {
         this.tweens.add({ targets: spot, alpha: 0.2, duration: 70, yoyo: true, repeat: -1, repeatDelay: 2600, hold: 90 });
     }
 
-    // Campamento: niebla del lago que cruza el tablero y luciérnagas
+    // Campamento: niebla del lago que cruza el tablero y luciérnagas.
+    // Con indoor (zona de piso bajo techo), la niebla y las luciérnagas se quedan afuera.
     drawFoggy() {
-        const mask = this.make.graphics({ add: false }).fillStyle(0xffffff).fillRect(this.ox, this.oy, COLS * T, ROWS * T).createGeometryMask();
+        const theme = THEMES[this.lv.theme], zone = (r, c) => {
+            const ch = this.lv.decor[r][c], ob = this.walls.has(`${r},${c}`) && theme.obstacles[ch];
+            return ob ? ob.floor : ch;
+        };
+        const outside = (x, y) => {
+            const c = Math.floor((x - this.ox) / T), r = Math.floor((y - this.oy) / T);
+            return !theme.indoor || r < 0 || r >= ROWS || c < 0 || c >= COLS || zone(r, c) !== theme.indoor;
+        };
+        const mg = this.make.graphics({ add: false }).fillStyle(0xffffff);
+        for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (outside(this.cx(c), this.cy(r))) mg.fillRect(this.ox + c * T, this.oy + r * T, T, T);
+        const mask = mg.createGeometryMask();
         for (let i = 0; i < 5; i++) {
             const x = this.ox + (i * 173) % (COLS * T), y = this.oy + 50 + i * 105;
             const f = this.add.image(x, y, 'fog').setDepth(30).setAlpha(0.6).setScale(1.4 + (i % 2) * 0.5).setMask(mask);
@@ -272,10 +287,80 @@ class GameScene extends Phaser.Scene {
         }
         for (let i = 0; i < 14; i++) {
             const x = this.ox + 20 + (i * 151) % (COLS * T - 40), y = this.oy + 20 + (i * 89) % (ROWS * T - 40);
+            if (!outside(x, y)) continue;
             const f = this.add.circle(x, y, 2, 0xd8f06a, 0.9).setDepth(31);
             this.tweens.add({ targets: f, alpha: 0.05, duration: 700 + (i * 97) % 600, yoyo: true, repeat: -1, delay: (i * 211) % 1200 });
             this.tweens.add({ targets: f, x: x + 10 - (i % 3) * 10, y: y - 8 + (i % 2) * 16, duration: 2400 + (i * 131) % 1500, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
         }
+    }
+
+    // Resplandor ya pintado del color pedido (el tinte no funciona en el modo Canvas); se crea una vez por color
+    glowTex(color) {
+        const key = 'glow_' + color.toString(16);
+        if (!this.textures.exists(key)) {
+            const g = this.make.graphics({ add: false });
+            for (let r = 128; r > 0; r -= 8) { g.fillStyle(color, 0.03); g.fillCircle(128, 128, r); }
+            g.generateTexture(key, 256, 256); g.destroy();
+        }
+        return key;
+    }
+
+    // Manhattan: lluvia en diagonal, relámpagos de vez en cuando y vapor que sale de las alcantarillas (m)
+    drawRainy() {
+        const mask = this.make.graphics({ add: false }).fillStyle(0xffffff).fillRect(this.ox, this.oy, COLS * T, ROWS * T).createGeometryMask();
+        for (let i = 0; i < 60; i++) {
+            const x = this.ox + (i * 61) % (COLS * T + 80) - 40, top = this.oy - 20, bottom = this.oy + ROWS * T + 10;
+            const y0 = top + (i * 37) % (ROWS * T);
+            const d = this.add.image(x, y0, 'rainDrop').setDepth(30).setAngle(14).setMask(mask).setAlpha(0.35 + (i % 3) * 0.15);
+            const fall = 520 + (i * 53) % 260, dist = bottom - top;
+            this.tweens.add({
+                targets: d, y: bottom, x: x - dist * 0.25 * (bottom - y0) / dist, duration: fall * (bottom - y0) / dist,
+                onComplete: () => {
+                    d.setPosition(x, top);
+                    this.tweens.add({ targets: d, y: bottom, x: x - dist * 0.25, duration: fall, repeat: -1, onRepeat: () => d.setPosition(x, top) });
+                }
+            });
+        }
+        this.lv.decor.forEach((row, r) => [...row].forEach((ch, c) => {
+            if (ch !== 'm') return;
+            for (let k = 0; k < 2; k++) {
+                const s = this.add.image(this.cx(c), this.cy(r), 'steam').setDepth(29).setScale(0.4).setAlpha(0);
+                this.tweens.add({
+                    targets: s, y: this.cy(r) - 46, scale: 1, alpha: { from: 0.8, to: 0 }, duration: 2600, repeat: -1, delay: k * 1300,
+                    onRepeat: () => s.setPosition(this.cx(c), this.cy(r))
+                });
+            }
+        }));
+        const flash = this.add.rectangle(W / 2, H / 2, W, H, 0xdce8ff, 0).setDepth(60);
+        this.time.addEvent({
+            delay: 7000, loop: true, callback: () => {
+                this.tweens.add({ targets: flash, alpha: { from: 0.22, to: 0 }, duration: 90, yoyo: true, repeat: 1 });
+            }
+        });
+    }
+
+    // Nave espacial: estrellas que titilan alrededor del tablero, alarma roja que late y chispas del androide roto (D)
+    drawSpace() {
+        for (let i = 0; i < 40; i++) {
+            const side = i % 4, k = (i * 97) % 1000 / 1000;
+            const x = side < 2 ? this.ox - 20 + k * (COLS * T + 40) : (side === 2 ? this.ox - 16 : this.ox + COLS * T + 16) + ((i * 7) % 9) - 4;
+            const y = side >= 2 ? this.oy - 10 + k * (ROWS * T + 20) : (side === 0 ? this.oy - 16 : this.oy + ROWS * T + 16) + ((i * 5) % 7) - 3;
+            const st = this.add.image(x, y, 'spStar').setDepth(41).setScale(0.6 + (i % 3) * 0.3);
+            this.tweens.add({ targets: st, alpha: 0.15, duration: 500 + (i * 131) % 900, yoyo: true, repeat: -1, delay: (i * 173) % 1500 });
+        }
+        const alarm = this.add.rectangle(this.ox + COLS * T / 2, this.oy + ROWS * T / 2, COLS * T, ROWS * T, 0xff1030, 0).setDepth(29);
+        this.tweens.add({ targets: alarm, fillAlpha: 0.1, duration: 700, yoyo: true, repeat: -1, repeatDelay: 1600, ease: 'Sine.easeInOut' });
+        this.lv.decor.forEach((row, r) => [...row].forEach((ch, c) => {
+            if (ch !== 'D' || !this.walls.has(`${r},${c}`)) return;
+            this.time.addEvent({
+                delay: 1800, loop: true, callback: () => {
+                    for (let k = 0; k < 5; k++) {
+                        const sp = this.add.circle(this.cx(c) + 12, this.cy(r) - 12, 1.5, k % 2 ? 0xffd23a : 0xffffff).setDepth(31);
+                        this.tweens.add({ targets: sp, x: sp.x + (k - 2) * 7, y: sp.y + 6 + k * 3, alpha: 0, duration: 380, onComplete: () => sp.destroy() });
+                    }
+                }
+            });
+        }));
     }
 
     // ---------- HUD ----------

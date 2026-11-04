@@ -33,6 +33,8 @@ function setupMenuNav(scene, buttons, onBack, start = 0) {
     buttons.forEach((b, i) => b.bg.on('pointerover', () => focus(i)));
     focus(start);
     scene.input.keyboard.on('keydown', e => {
+        // Mientras hay una ventana abierta encima (p. ej. el código), el menú no responde
+        if (scene.navLocked) return;
         if (['ArrowUp', 'KeyW', 'ArrowLeft', 'KeyA'].includes(e.code)) { focus(index - 1); Sfx.play('click'); }
         else if (['ArrowDown', 'KeyS', 'ArrowRight', 'KeyD'].includes(e.code)) { focus(index + 1); Sfx.play('click'); }
         else if (e.code === 'Enter' || e.code === 'Space') { Sfx.play('click'); buttons[index].onClick(); }

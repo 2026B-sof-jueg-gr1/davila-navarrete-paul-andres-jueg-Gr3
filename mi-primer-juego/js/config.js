@@ -248,6 +248,99 @@ const JASON_LEVELS = [
                 'Use it to drive them within reach!'
             ]
         }
+    },
+    {
+        name: 'Jason in the Big Apple',
+        // Tres sobrias; la solución óptima es única y necesita hacer huir a víctimas al menos 3 veces. Margen de 3 movimientos.
+        par: 33,
+        maxMoves: 36,
+        finalMoves: 4,
+        map: [
+            '.###V.S.#..',
+            '#.V.#.S..P.',
+            '...........',
+            'V#...#.#...',
+            '#V#.V....F#',
+            '......##..#',
+            '..S##.#....',
+            '.#......#..'
+        ],
+        // Escenario: calle de Manhattan de noche bajo la lluvia; banquetas (w) arriba y abajo, paso de cebra (x) y alcantarillas con vapor (m)
+        theme: 'nyc',
+        victimTex: ['victimB', 'victimE', 'victimI', 'victimA', 'victimF', 'victimG', 'victimD', 'victimC'],
+        decor: [
+            'wYZHwwwwEww',
+            'K...N......',
+            '.m....xxx..',
+            '.G...U.L...',
+            'B.M.......S',
+            '......YZ..D',
+            '...AX.H.m..',
+            'wGwwwwwwLww'
+        ]
+    },
+    {
+        name: 'Space???',
+        // Un poco más fácil que el 2-3: 7 víctimas (2 sobrias, ambas imprescindibles) y basta con 2 huidas. Margen de 3 movimientos.
+        par: 31,
+        maxMoves: 34,
+        finalMoves: 4,
+        map: [
+            '..VV.#V....',
+            '..######...',
+            '#.###FP...#',
+            '...#..#..#.',
+            '.........##',
+            '.S....#.#.V',
+            'V.#..S..#.#',
+            '.#....#...#'
+        ],
+        // Escenario: la nave Grendel (Jason X); todo el piso libre es de placas normales para no confundirlo con obstáculos
+        theme: 'space',
+        // Jason con la armadura de Jason X
+        killerTex: 'jasonX',
+        victimTex: ['victimC', 'victimH', 'victimA', 'victimI', 'victimE', 'victimF', 'victimB'],
+        decor: [
+            '.....R.....',
+            '..KZCCCS...',
+            'P.BTH.....I',
+            '...X..D..I.',
+            '.........PR',
+            '......M.B..',
+            '..T.....I.P',
+            '.X....C...R'
+        ]
+    },
+    {
+        name: "Jason's Shack",
+        // El más difícil del mundo: solo se entra a la cabaña por la puerta (fila 5, columna 4).
+        // 8 víctimas (3 sobrias, 2 de ellas imprescindibles), solución óptima única. Margen de 3 movimientos.
+        par: 41,
+        maxMoves: 44,
+        finalMoves: 4,
+        map: [
+            '#.#V...P...',
+            '#...#######',
+            '...###...#.',
+            '....#V.#..V',
+            'V#..#S..##.',
+            '.#....F...#',
+            '.S..###....',
+            '.VS.####...'
+        ],
+        // Escenario: bosque con niebla afuera y la cabaña de troncos adentro (i), con el altar a su madre (A) y su cabeza encima
+        theme: 'shack',
+        victimTex: ['victimA', 'victimD', 'victimG', 'victimE', 'victimB', 'victimI', 'victimF', 'victimH'],
+        decor: [
+            'P.U........',
+            'Y...OHHHHHH',
+            '...RVLiiiSi',
+            '....ViiAiii',
+            '.P..DiiiBKi',
+            '.M..iiiiiiT',
+            '....VXCiiii',
+            '....VKXLiii'
+        ]
     }
 ];
 
@@ -255,7 +348,9 @@ const JASON_LEVELS = [
 // ('.' es el piso normal del tema); "floors" da los dos pisos alternos de cada zona.
 // Opcionales: w (ancho en casillas), glow (resplandor que late; true = calor naranja, o un color), flicker (zona con luz que parpadea),
 // festive (guirnaldas, coronas y nieve alrededor del tablero), spooky (banderines rotos, focos fundidos y un reflector),
-// foggy (niebla que cruza el tablero y luciérnagas).
+// foggy (niebla que cruza el tablero y luciérnagas), rainy (lluvia, relámpagos y vapor de las alcantarillas m),
+// space (alarma roja, estrellas alrededor y chispas del androide), indoor (zona bajo techo: la niebla no entra),
+// top (imagen encima del objeto: { tex, scale, dy }).
 const THEMES = {
     fastfood: {
         floors: { '.': ['ffFloorA', 'ffFloorB'], k: ['ffKitchen', 'ffKitchen'], b: ['bathFloorA', 'bathFloorB'] },
@@ -326,6 +421,45 @@ const THEMES = {
             N: { tex: 'cmTent', floor: '.' }, Q: { tex: 'cmCooler', floor: '.' }, X: { tex: 'cmBoombox', floor: '.' },
             Z: { tex: null, floor: '.' }
         }
+    },
+    nyc: {
+        floors: { '.': ['nyAsphaltA', 'nyAsphaltB'], w: ['nySidewalkA', 'nySidewalkB'], x: ['nyCrosswalk', 'nyCrosswalk'], m: ['nyManhole', 'nyManhole'] },
+        rainy: true,
+        obstacles: {
+            Y: { tex: 'nyTaxi', floor: '.', w: 2 }, H: { tex: 'nyHydrant', floor: 'w' }, G: { tex: 'nyTrash', floor: 'w' },
+            B: { tex: 'nyBags', floor: 'w' }, N: { tex: 'nyNews', floor: 'w' }, L: { tex: 'nyLamp', floor: 'w', glow: 0xffe8a0 },
+            U: { tex: 'nySubway', floor: 'w', glow: 0x7dff9a }, D: { tex: 'nyDumpster', floor: '.' }, K: { tex: 'nyBooth', floor: 'w' },
+            A: { tex: 'nyBarrier', floor: '.' }, X: { tex: 'nyHotdog', floor: 'w' }, M: { tex: 'nyMailbox', floor: 'w' },
+            S: { tex: 'nySign', floor: 'w' }, E: { tex: 'nyNeon', floor: 'w', glow: 0xff4fb8 },
+            Z: { tex: null, floor: '.' }
+        }
+    },
+    shack: {
+        floors: { '.': ['cmDirtA', 'cmDirtB'], i: ['shFloorA', 'shFloorB'] },
+        foggy: true,
+        indoor: 'i',
+        obstacles: {
+            H: { tex: 'shWallH', floor: 'i' }, V: { tex: 'shWallV', floor: 'i' }, O: { tex: 'shCorner', floor: 'i' },
+            D: { tex: 'shWallDoor', floor: 'i' },
+            A: { tex: 'shAltar', floor: 'i', glow: 0xffb020, top: { tex: 'momHead', scale: 0.4, dy: -10 } },
+            B: { tex: 'shBed', floor: 'i' }, S: { tex: 'shStove', floor: 'i', glow: true }, T: { tex: 'shTable', floor: 'i', glow: 0xd8a83a },
+            L: { tex: 'shShelf', floor: 'i' }, K: { tex: 'shTrunk', floor: 'i' }, X: { tex: 'shBones', floor: 'i' },
+            C: { tex: 'shCandles', floor: 'i', glow: 0xffb020 },
+            P: { tex: 'cmPine', floor: '.' }, U: { tex: 'cmBush', floor: '.' }, R: { tex: 'cmRock', floor: '.' },
+            M: { tex: 'cmStump', floor: '.' }, Y: { tex: 'cmStumpAxe', floor: '.' }, G: { tex: 'cmLogs', floor: '.' },
+            N: { tex: 'cmTent', floor: '.' }, W: { tex: 'cmOuthouse', floor: '.' }
+        }
+    },
+    space: {
+        floors: { '.': ['spDeckA', 'spDeckB'], g: ['spGrate', 'spGrate'], w: ['spWindowFloor', 'spWindowFloor'] },
+        space: true,
+        obstacles: {
+            K: { tex: 'spConsole', floor: '.', w: 2 }, C: { tex: 'spCryo', floor: '.', glow: 0x2ad8ff }, S: { tex: 'spSign', floor: '.' },
+            P: { tex: 'spPort', floor: '.' }, B: { tex: 'spCrate', floor: '.' }, T: { tex: 'spTank', floor: '.' },
+            H: { tex: 'spHolo', floor: '.', glow: 0x2ad8ff }, X: { tex: 'spHazard', floor: '.' }, D: { tex: 'spDroid', floor: '.' },
+            I: { tex: 'spPipes', floor: '.' }, R: { tex: 'spDoor', floor: '.' }, M: { tex: 'spBed', floor: '.' },
+            Z: { tex: null, floor: '.' }
+        }
     }
 };
 
@@ -354,8 +488,13 @@ function saveSettings() { Store.save(GameSettings); }
 
 // Progreso por mundo: niveles desbloqueados (al menos el primero) y mejores estrellas de cada nivel
 // Un mundo se abre al superar el último nivel del anterior
-function worldUnlocked(w) { return w === 0 || (GameSettings.progress[w - 1] || 1) > WORLDS[w - 1].levels.length; }
-function unlockedLevels(w) { return worldUnlocked(w) ? Math.min(WORLDS[w].levels.length, GameSettings.progress[w] || 1) : 0; }
+// Con el código secreto (unlockAll) todo queda abierto
+const UNLOCK_CODE = 'REDRUM';
+function worldUnlocked(w) { return w === 0 || GameSettings.unlockAll || (GameSettings.progress[w - 1] || 1) > WORLDS[w - 1].levels.length; }
+function unlockedLevels(w) {
+    if (!worldUnlocked(w)) return 0;
+    return GameSettings.unlockAll ? WORLDS[w].levels.length : Math.min(WORLDS[w].levels.length, GameSettings.progress[w] || 1);
+}
 // Último nivel jugado (no el último desbloqueado), si todavía existe en la lista de mundos
 function lastPlayedLevel() {
     const p = GameSettings.lastPlayed;
