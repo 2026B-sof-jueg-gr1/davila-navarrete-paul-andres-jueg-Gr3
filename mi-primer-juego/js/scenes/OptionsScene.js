@@ -2,14 +2,14 @@ class OptionsScene extends Phaser.Scene {
     constructor() { super('Options'); }
 
     create() {
-        drawTentBackdrop(this);
-        addTitle(this, 'Opciones', 130, '64px');
+        drawCinemaBackdrop(this);
+        addTitle(this, 'Options', 130, '64px');
 
         const order = ['facil', 'normal', 'dificil'];
         const label = {
-            sound: () => `Sonido: ${GameSettings.sound ? 'Sí' : 'No'}`,
-            diff: () => `Golpe final: ${DIFFICULTY[GameSettings.difficulty].label}`,
-            grid: () => `Cuadrícula: ${GameSettings.grid ? 'Visible' : 'Oculta'}`
+            sound: () => `Sound: ${GameSettings.sound ? 'On' : 'Off'}`,
+            diff: () => `Final blow: ${DIFFICULTY[GameSettings.difficulty].label}`,
+            grid: () => `Grid: ${GameSettings.grid ? 'Visible' : 'Hidden'}`
         };
         const opts = { w: 380 };
 
@@ -23,10 +23,10 @@ class OptionsScene extends Phaser.Scene {
         const grid = makeButton(this, W / 2, 358, label.grid(), () => {
             GameSettings.grid = !GameSettings.grid; saveSettings(); grid.setLabel(label.grid());
         }, opts);
-        const reset = makeButton(this, W / 2, 422, 'Borrar récord', () => {
-            GameSettings.best = 0; saveSettings(); reset.setLabel('Récord borrado');
+        const reset = makeButton(this, W / 2, 422, 'Reset high score', () => {
+            GameSettings.best = 0; saveSettings(); reset.setLabel('High score reset');
         }, opts);
-        const back = makeButton(this, W / 2, 506, 'Volver', () => this.scene.start('Menu'), opts);
+        const back = makeButton(this, W / 2, 506, 'Back', () => this.scene.start('Menu'), opts);
 
         setupMenuNav(this, [sound, diff, grid, reset, back], () => this.scene.start('Menu'));
     }

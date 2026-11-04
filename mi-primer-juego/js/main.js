@@ -7,7 +7,7 @@ function startGame() {
         height: H,
         backgroundColor: '#140b18',
         scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-        scene: [MenuScene, OptionsScene, HowToScene, GameScene, ResultScene]
+        scene: [MenuScene, OptionsScene, HowToScene, LevelSelectScene, GameScene, ResultScene]
     });
 }
 
