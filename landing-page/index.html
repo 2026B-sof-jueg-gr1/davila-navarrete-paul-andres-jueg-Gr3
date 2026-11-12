@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Late Night Feature</title>
+    <meta name="description" content="Late Night Feature: a slasher puzzle game. Slide the killer, trap the victims, land the final blow.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Grano de película y rayas que aparecen sobre toda la página -->
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scratch" aria-hidden="true"></div>
+
+    <!-- ===== Navegación ===== -->
+    <header class="nav" id="nav">
+        <a href="#top" class="nav__logo" aria-label="Late Night Feature, home">
+            <span class="logo-mark">LNF</span>
+        </a>
+        <nav class="nav__links" id="navLinks">
+            <a href="#story">The Game</a>
+            <a href="#killers">Killers</a>
+            <a href="#sets">Sets</a>
+            <a href="#how">How to Play</a>
+        </nav>
+        <a href="../mi-primer-juego/index.html" class="btn btn--sm">
+            <span class="btn__inner">Play now</span>
+        </a>
+        <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main id="top">
+        <!-- ===== Hero ===== -->
+        <section class="hero">
+            <div class="hero__bg" aria-hidden="true">
+                <img src="img/w1-circus.jpg" alt="">
+            </div>
+            <div class="hero__curtain hero__curtain--l" aria-hidden="true"></div>
+            <div class="hero__curtain hero__curtain--r" aria-hidden="true"></div>
+            <div class="hero__beam" aria-hidden="true"></div>
+
+            <img class="hero__killer hero__killer--art" src="img/char-clown.png" alt="Art the clown, holding a knife">
+            <img class="hero__killer hero__killer--jason" src="img/char-jason.png" alt="Jason, holding a machete">
+
+            <div class="hero__content">
+                <p class="eyebrow"><span class="rec"></span> Now showing · One night only</p>
+                <h1 class="hero__title">
+                    <span class="drip">Late Night</span>
+                    <span class="drip">Feature</span>
+                </h1>
+                <p class="hero__tag">Two killers. Ten sets. <em>No survivors.</em></p>
+                <p class="hero__sub">A slasher puzzle game. Slide the killer across the board, trap every victim, then land the final blow.</p>
+                <div class="hero__cta">
+                    <a href="../mi-primer-juego/index.html" class="btn btn--lg">
+                        <span class="btn__inner">Play free</span>
+                    </a>
+                    <a href="#killers" class="link-arrow">Meet the killers</a>
+                </div>
+            </div>
+
+            <div class="hero__ticker" aria-hidden="true">
+                <div class="ticker">
+                    <span>Late-Night Food</span><i>✦</i><span>Clown Cafe</span><i>✦</i><span>Locker Room</span><i>✦</i>
+                    <span>Silent Night Mall</span><i>✦</i><span>The Grand Finale</span><i>✦</i><span>Camp Crystal Lake</span><i>✦</i>
+                    <span>Party at the Lake</span><i>✦</i><span>Jason in the Big Apple</span><i>✦</i><span>Space???</span><i>✦</i>
+                    <span>Jason's Shack</span><i>✦</i>
+                    <span>Late-Night Food</span><i>✦</i><span>Clown Cafe</span><i>✦</i><span>Locker Room</span><i>✦</i>
+                    <span>Silent Night Mall</span><i>✦</i><span>The Grand Finale</span><i>✦</i><span>Camp Crystal Lake</span><i>✦</i>
+                    <span>Party at the Lake</span><i>✦</i><span>Jason in the Big Apple</span><i>✦</i><span>Space???</span><i>✦</i>
+                    <span>Jason's Shack</span><i>✦</i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Qué es el juego ===== -->
+        <section class="story" id="story">
+            <div class="wrap story__grid">
+                <div class="story__text reveal">
+                    <p class="kicker">// The game</p>
+                    <h2 class="h2">We are<br><span class="red">Late Night</span><br>Feature</h2>
+                    <p class="lead">The lights go down. The projector flickers on. Tonight's double feature stars two slasher icons, and you are the one holding the knife.</p>
+                    <p>Every level is a grid. The killer slides in a straight line until something stops him: a fryer, a locker, a taxi, a stranger. Plan each move, because the reel only has so much film.</p>
+                    <ul class="stats">
+                        <li><b data-count="2">2</b><span>Killers</span></li>
+                        <li><b data-count="10">10</b><span>Sets</span></li>
+                        <li><b data-count="57">57</b><span>Victims</span></li>
+                        <li><b data-count="3">3</b><span>Difficulties</span></li>
+                    </ul>
+                </div>
+                <figure class="screen reveal">
+                    <div class="screen__frame">
+                        <img src="img/menu.jpg" alt="Main menu: a theater marquee with the title, Art on the left and the final girl on the right" loading="lazy">
+                    </div>
+                    <figcaption>Main menu · Reel 01</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== Asesinos (estilo selector de agentes) ===== -->
+        <section class="killers" id="killers">
+            <div class="killers__bigword" aria-hidden="true" id="bigword">ART</div>
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="kicker">// The cast</p>
+                    <h2 class="h2">Your <span class="red">killers</span></h2>
+                    <p class="section-head__sub">Each killer brings his own world, his own victims and his own way of playing.</p>
+                </div>
+
+                <div class="killers__stage">
+                    <div class="killers__list" role="tablist" aria-label="Choose a killer">
+                        <button class="ktab is-active" role="tab" aria-selected="true" data-k="0">
+                            <img src="img/char-clown.png" alt=""><span><small>World 01</small>Art</span>
+                        </button>
+                        <button class="ktab" role="tab" aria-selected="false" data-k="1">
+                            <img src="img/char-jason.png" alt=""><span><small>World 02</small>Jason</span>
+                        </button>
+                    </div>
+
+                    <div class="killers__art">
+                        <div class="killers__slash" aria-hidden="true"></div>
+                        <img id="kImg" src="img/char-clown.png" alt="Art the clown">
+                        <button class="skin" id="kSkin" aria-label="Show alternate costume">
+                            <img id="kSkinImg" src="img/char-artSanta.png" alt="">
+                            <span id="kSkinLabel">Santa Art</span>
+                        </button>
+                    </div>
+
+                    <div class="killers__info" role="tabpanel" aria-live="polite">
+                        <p class="role" id="kRole">// World 01 · The Killer Clown</p>
+                        <h3 class="killers__name" id="kName">Art</h3>
+                        <p class="killers__bio" id="kBio">Silent, grinning and never in a hurry. Art slides across fast food joints, playgrounds and a Christmas mall until he hits something, and if that something is a victim, the show goes on.</p>
+                        <div class="ability">
+                            <p class="ability__label">Signature move</p>
+                            <div class="ability__row">
+                                <div class="ability__icon" id="kAbIcon">✂</div>
+                                <div>
+                                    <h4 id="kAbName">The Slide</h4>
+                                    <p id="kAbText">Moves in a straight line until he hits a wall. Every move counts: you get the minimum plus two.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="ktags" id="kTags">
+                            <li>5 sets</li><li>21 victims</li><li>Moves: par + 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Escenarios (carrusel estilo mapas) ===== -->
+        <section class="sets" id="sets">
+            <div class="wrap">
+                <div class="section-head section-head--row reveal">
+                    <div>
+                        <p class="kicker">// The locations</p>
+                        <h2 class="h2">Your <span class="red">sets</span></h2>
+                    </div>
+                    <div class="sets__controls">
+                        <div class="filter" role="group" aria-label="Filter by world">
+                            <button class="is-active" data-w="all">All</button>
+                            <button data-w="1">World 01</button>
+                            <button data-w="2">World 02</button>
+                        </div>
+                        <div class="arrows">
+                            <button class="arrow" id="prev" aria-label="Previous set">‹</button>
+                            <button class="arrow" id="next" aria-label="Next set">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sets__track" id="track">
+                <article class="set" data-w="1">
+                    <div class="set__img"><img src="img/w1-fastfood.jpg" alt="Fast food restaurant level with a kitchen and a dirty bathroom" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">1-1</span><h3>Late-Night Food</h3><p>A greasy burger joint after closing time. Mind the fryer.</p><ul><li>3 victims</li><li>15 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="1">
+                    <div class="set__img"><img src="img/w1-park.jpg" alt="Night playground level with swings and a food truck" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">1-2</span><h3>Clown Cafe</h3><p>A playground at night and a food truck nobody should order from.</p><ul><li>4 victims</li><li>17 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="1">
+                    <div class="set__img"><img src="img/w1-locker.jpg" alt="High school locker room level with showers" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">1-3</span><h3>Locker Room</h3><p>The showers flicker. The lockers creak. Someone is still inside.</p><ul><li>4 victims</li><li>20 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="1">
+                    <div class="set__img"><img src="img/w1-xmas.jpg" alt="Christmas mall level with a tree, Santa's chair and Art dressed as Santa" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">1-4</span><h3>Silent Night Mall</h3><p>Art puts on the red suit. The shoppers put on their last smile.</p><ul><li>5 victims</li><li>22 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="1">
+                    <div class="set__img"><img src="img/w1-circus.jpg" alt="Abandoned circus tent level with a ring in the middle" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">1-5</span><h3>The Grand Finale</h3><p>An abandoned big top. The clown is finally home.</p><ul><li>5 victims</li><li>27 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="2">
+                    <div class="set__img"><img src="img/w2-camp.jpg" alt="Lakeside camp level at night with a creek, cabin and campfire" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">2-1</span><h3>Camp Crystal Lake</h3><p>Fog over the water, a campfire and a cabin with the lights still on.</p><ul><li>6 victims</li><li>34 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="2">
+                    <div class="set__img"><img src="img/w2-party.jpg" alt="Lake party level with a boombox and a cooler" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">2-2</span><h3>Party at the Lake</h3><p>Sober victims show up. Stop next to them and they run.</p><ul><li>7 victims</li><li>31 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="2">
+                    <div class="set__img"><img src="img/w2-nyc.jpg" alt="Rainy Manhattan street level with taxis and a subway entrance" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">2-3</span><h3>Jason in the Big Apple</h3><p>Rain, taxis and steam from the sewers. The city never sleeps.</p><ul><li>8 victims</li><li>36 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="2">
+                    <div class="set__img"><img src="img/w2-space.jpg" alt="Spaceship level with cryo pods and Jason in armor" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">2-4</span><h3>Space???</h3><p>Red alert aboard the Grendel. In space, no one hears the machete.</p><ul><li>7 victims</li><li>34 moves</li></ul></div>
+                </article>
+                <article class="set" data-w="2">
+                    <div class="set__img"><img src="img/w2-shack.jpg" alt="Forest and log cabin level with the mother's altar" loading="lazy"></div>
+                    <div class="set__body"><span class="set__num">2-5</span><h3>Jason's Shack</h3><p>One door in. A shrine to Mother. The hardest set of the night.</p><ul><li>8 victims</li><li>44 moves</li></ul></div>
+                </article>
+            </div>
+            <div class="wrap"><div class="progress"><span id="progress"></span></div></div>
+        </section>
+
+        <!-- ===== Cómo se juega ===== -->
+        <section class="how" id="how">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="kicker">// The script</p>
+                    <h2 class="h2">How the <span class="red">night</span> goes</h2>
+                </div>
+
+                <ol class="steps">
+                    <li class="step reveal">
+                        <div class="step__img"><img src="img/w1-xmas.jpg" alt="Board with victims and Santa Art waiting to slide" loading="lazy"></div>
+                        <div class="step__text">
+                            <span class="step__n">01</span>
+                            <h3>Slide</h3>
+                            <p>Arrows or WASD move the killer, and he does not stop until he hits something. Plan the path, use the furniture, and take out every victim before you run out of moves.</p>
+                        </div>
+                    </li>
+                    <li class="step step--flip reveal">
+                        <div class="step__img"><img src="img/final-phase.jpg" alt="The final girl appears in a corner of the board" loading="lazy"></div>
+                        <div class="step__text">
+                            <span class="step__n">02</span>
+                            <h3>Hunt the final girl</h3>
+                            <p>With the board cleared, the last victim shows up. You only get a few moves to corner her before she escapes the theater.</p>
+                        </div>
+                    </li>
+                    <li class="step reveal">
+                        <div class="step__img"><img src="img/minigame.jpg" alt="Final blow minigame: a needle moving across a bar with a green zone" loading="lazy"></div>
+                        <div class="step__text">
+                            <span class="step__n">03</span>
+                            <h3>Final blow</h3>
+                            <p>Stop the needle in the green zone three times in a row. The zone shrinks every round, and on Hard it barely exists.</p>
+                        </div>
+                    </li>
+                    <li class="step step--flip reveal">
+                        <div class="step__img"><img src="img/jason-mom.jpg" alt="Mother's head floating over the board, marking the next five moves" loading="lazy"></div>
+                        <div class="step__text">
+                            <span class="step__n">04</span>
+                            <h3>Listen to Mommy</h3>
+                            <p>In World 02, press Space and Jason's mother marks the next five moves of the best route. Three uses per level, so save them.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===== Llamado final ===== -->
+        <section class="final">
+            <div class="final__bg" aria-hidden="true"><img src="img/w2-camp.jpg" alt=""></div>
+            <img class="final__girl" src="img/char-finalGirl.png" alt="The final girl, looking over her shoulder">
+            <div class="wrap final__inner reveal">
+                <div class="ticket">
+                    <div class="ticket__main">
+                        <p class="kicker">// Admit one</p>
+                        <h2 class="h2">The show starts<br>at <span class="red">midnight</span></h2>
+                        <p>Free in your browser. No download, no account. Just the dark.</p>
+                        <a href="../mi-primer-juego/index.html" class="btn btn--lg"><span class="btn__inner">Play free</span></a>
+                    </div>
+                    <div class="ticket__stub">
+                        <p class="ticket__label">Controls</p>
+                        <dl>
+                            <div><dt><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></dt><dd>Move</dd></div>
+                            <div><dt><kbd>Z</kbd></dt><dd>Undo</dd></div>
+                            <div><dt><kbd>R</kbd></dt><dd>Restart</dd></div>
+                            <div><dt><kbd>Space</kbd></dt><dd>Strike / Mommy</dd></div>
+                            <div><dt><kbd>Esc</kbd></dt><dd>Menu</dd></div>
+                        </dl>
+                        <p class="ticket__note">On touch screens: swipe to move, tap to strike.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer__inner">
+            <span class="logo-mark">LNF</span>
+            <p>Late Night Feature · Made by Paul Andrés Dávila Navarrete · Gr3<br>
+            Built with Phaser 3. All art is drawn in code.</p>
+            <p class="footer__fine">A fan-made student project. Viewer discretion advised.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
